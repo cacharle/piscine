@@ -1,0 +1,7 @@
+Credentials cache: API:57199
+        Principal: cacharle@S19.BE
+
+  Issued                Expires               Principal
+Jul  1 11:43:10 2019  Jul  1 21:43:10 2019  krbtgt/S19.BE@S19.BE
+Jul  1 11:43:11 2019  Jul  1 21:43:10 2019  ldap/ldap-master.s19.be@S19.BE
+Jul  1 11:43:11 2019  Jul  1 21:43:10 2019  HTTP/san-ssd.s19.be@S19.BE
