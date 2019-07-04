@@ -1,5 +1,5 @@
 #include <stdio.h>
-/*#include <limits.h>*/
+#include <limits.h>
 #include "ex00/ft_ft.c"
 #include "ex01/ft_ultimate_ft.c"
 #include "ex02/ft_swap.c"
@@ -57,16 +57,19 @@ int main()
 
 	printf("(23) '%s' length = %d\n", s, ft_strlen(s));
 
-	int t[4] = {1, 2, 3, 4};
+	int t[4] = {1, INT_MAX, INT_MIN, 4};
 	ft_rev_int_tab(t, 4);
 	for (int i = 0; i < 4; i++)
 		printf("%d ", t[i]);
 	printf("\n");
 
 
-	int t2[5] = {3, 6, 1, 2, -1};
-	ft_sort_int_tab(t2, 5);
-	for (int i = 0; i < 5; i++)
+	srand(1);
+	int t2[50];
+	for (int i = 0; i < 50; i++)
+		t2[i] = rand();
+	ft_sort_int_tab(t2, 50);
+	for (int i = 0; i < 50; i++)
 		printf("%d ", t2[i]);
 
 	return 0;

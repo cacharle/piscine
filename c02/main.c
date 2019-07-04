@@ -1,49 +1,87 @@
 #include <stdio.h>
 #include <limits.h>
-/*#include "ex00/ft_putchar.c"*/
-/*#include "ex01/ft_print_alphabet.c"*/
-/*#include "ex02/ft_print_reverse_alphabet.c"*/
-/*#include "ex03/ft_print_numbers.c"*/
-/*#include "ex04/ft_is_negative.c"*/
-/*#include "ex05/ft_print_comb.c"*/
-/*#include "ex06/ft_print_comb2.c"*/
-/*#include "ex07/ft_putnbr.c"*/
-#include "ex08/ft_print_combn.c"
+#include "ex00/ft_strcpy.c"
+#include "ex01/ft_strncpy.c"
+/*#include "ex02/ft_str_is_alpha.c"*/
+/*#include "ex03/ft_str_is_numeric.c"*/
+/*#include "ex04/ft_str_is_lowercase.c"*/
+/*#include "ex05/ft_str_is_uppercase.c"*/
+/*#include "ex06/ft_str_is_printable.c"*/
+/*#include "ex07/ft_strupcase.c"*/
+/*#include "ex08/ft_strlowercase.c"*/
+#include "ex09/ft_strcapitalize.c"
+#include "ex10/ft_strlcpy.c"
+#include "ex11/ft_putstr_non_printable.c"
 
 int main()
 {
+	/*char *last;*/
+	/*char dest[13];*/
+	/*char src[] = "aonjour asdf\0 asdf";*/
+	/*last = ft_strcpy(dest, src);*/
+	/*for (int i = 0; i < 13; i++)*/
+		/*printf("%d ", dest[i]);*/
+	/*printf("last %d", *last);*/
+	/*printf("\n%s\n", dest);*/
 
-	/*ft_putchar('a');*/
-	/*ft_putchar('z');*/
-	/*ft_putchar('\n');*/
+	/*char ndest[10];*/
+	/*char nsrc[20] = "bonjour jew\0";*/
+	/*last = ft_strncpy(ndest, nsrc, sizeof ndest);*/
+	/*for (int i = 0; i < sizeof ndest; i++)*/
+		/*printf("%d ", ndest[i]);*/
+	/*printf("dest %d, last %d", ndest, last);*/
+	/*printf("\n%s\n", ndest);*/
 
-	/*ft_putchar('\n');*/
-	/*ft_print_alphabet();*/
+	/*char salpha[] = "BONJour";*/
+	/*char snalpha[] = "bonJour";*/
+	/*printf("%d salpha\n", ft_str_is_alpha(salpha));*/
+	/*printf("%d snalpha\n", ft_str_is_alpha(snalpha));*/
 
-	/*ft_putchar('\n');*/
-	/*ft_print_reverse_alphabet();*/
+	/*char num[] = "0123456789";*/
+	/*char nnum[] = "0123456789a";*/
+	/*printf("%d num\n", ft_str_is_numeric(num));*/
+	/*printf("%d nnum\n", ft_str_is_numeric(nnum));*/
 
-	/*ft_putchar('\n');*/
-	/*ft_print_numbers();*/
+	/*char low[] = "bonjour";*/
+	/*char nlow[] = "bonjOUR";*/
+	/*printf("%d low\n", ft_str_is_lowercase(low));*/
+	/*printf("%d nlow\n", ft_str_is_lowercase(nlow));*/
 
-	/*ft_putchar('\n');*/
-	/*ft_is_negative(1);*/
-	/*ft_is_negative(0);*/
-	/*ft_is_negative(-1);*/
+	/*char up[] = "BONJOUR";*/
+	/*char nup[] = "BonjOUR";*/
+	/*printf("%d up\n", ft_str_is_uppercase(up));*/
+	/*printf("%d nup\n", ft_str_is_uppercase(nup));*/
 
-	/*ft_putchar('\n');*/
-	/*ft_print_comb();*/
+	/*char printable[] = "boq4523$$%@$!``~~;'[[=_";*/
+	/*char nprintable[] = "as^?\bf89*0(\n\r";*/
+	/*printf("%d printable\n", ft_str_is_printable(printable));*/
+	/*printf("%d nprintable\n", ft_str_is_printable(nprintable));*/
 
-	/*ft_putchar('\n');*/
-	/*ft_print_comb2();*/
+	/*char toup[] = "bonjourJE6''";*/
+	/*char *upped = ft_strupcase(toup);*/
+	/*printf("%s\n", upped);*/
 
-	/*ft_putchar('\n');*/
-	/*ft_putnbr(INT_MAX);*/
-	/*ft_putchar('\n');*/
-	/*ft_putnbr(INT_MIN);*/
-	/*ft_putchar('\n');*/
-	/*ft_putnbr(-42);*/
+	/*char tolow[] = "bonJOURJE6''";*/
+	/*char *lowered = ft_strlowcase(tolow);*/
+	/*printf("%s\n", lowered);*/
 
+	/*char tocap[1024] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";*/
+	/*ft_strcapitalize(tocap);*/
+	/*printf("%s\n", tocap);*/
 
-	ft_print_combn(2);
+	/*char buf[40];*/
+	/*char src[] = "bonjour qqq";*/
+	/*printf("str len = %u", ft_strlcpy(buf, str, 40));*/
+
+	/*char unp[10] = {10, 1, 2, 'a', 'g', '+', ' ', 20};*/
+	/*ft_putstr_non_printable(unp);*/
+	char unp2[10] = {'\xff'};
+	for (int i = 0; i < 256; i++)
+	{
+		unp2[0] = (char)i;
+		ft_putstr_non_printable(unp2);
+	}
+	ft_putstr_non_printable("Coucou\ntu vas bien ?");
+
+	return 0;
 }
