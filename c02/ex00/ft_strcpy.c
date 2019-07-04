@@ -6,18 +6,20 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 18:54:30 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/03 19:08:36 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/04 21:16:26 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcpy(char *dest, char *src)
 {
+	int	i;
+
+	i = 0;
 	while (*src != '\0')
 	{
-		*dest = *src;
-		src++;
-		dest++;
+		dest[i] = src[i];
+		i++;
 	}
-	*dest = *src;
+	dest[i] = '\0';
 	return (dest);
 }

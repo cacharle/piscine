@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlowercase.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 19:02:31 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/04 21:15:46 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/03 19:53:41 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/04 11:24:01 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int		is_between(char start, char end, char subject)
 {
-	unsigned int	i;
+	return (subject >= start && subject <= end);
+}
 
-	i = 0;
-	while (i < n && src[i] != '\0')
+char	*ft_strlowcase(char *str)
+{
+	char *head;
+
+	head = str;
+	while (*str != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		if (is_between('A', 'Z', *str))
+			*str = *str - 'A' + 'a';
+		str++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (head);
 }

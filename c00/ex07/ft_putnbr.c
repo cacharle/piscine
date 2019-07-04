@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:51:16 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/03 14:29:34 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/04 14:27:32 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_putnbr(int nb)
 		nb = -nb;
 	}
 	i = 0;
-	while (nb > 0)
+	while (nb >= 0)
 	{
 		rev_digits[i] = nb % 10;
 		nb = nb / 10;
