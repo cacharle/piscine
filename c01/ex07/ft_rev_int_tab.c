@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 18:02:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/03 18:15:24 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/04 06:44:57 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_rev_int_tab(int *tab, int size)
 	int tmp;
 
 	i = 0;
-	j = size;
+	j = size - 1;
 	while (i <= j)
 	{
 		tmp = tab[i];
