@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 18:54:30 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/04 21:16:26 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/05 08:46:57 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ char	*ft_strcpy(char *dest, char *src)
 	int	i;
 
 	i = 0;
-	while (*src != '\0')
+	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;

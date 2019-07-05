@@ -6,20 +6,15 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 19:33:13 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/04 10:36:44 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/05 08:45:10 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	is_between(char start, char end, char subject)
-{
-	return (subject >= start && subject <= end);
-}
 
 int	ft_str_is_uppercase(char *str)
 {
 	while (*str != '\0')
 	{
-		if (!is_between('A', 'Z', *str))
+		if (!(*str >= 'A' && *str <= 'Z'))
 			return (0);
 		str++;
 	}
