@@ -6,20 +6,15 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 19:26:04 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/04 10:31:44 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/05 08:37:16 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	is_between(char start, char end, char subject)
-{
-	return (subject >= start && subject <= end);
-}
 
 int	ft_str_is_numeric(char *str)
 {
 	while (*str != '\0')
 	{
-		if (!is_between('0', '9', *str))
+		if (!(*str >= '0' && *str <= '9'))
 			return (0);
 		str++;
 	}
