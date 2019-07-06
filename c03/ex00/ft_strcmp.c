@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 19:43:32 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/05 10:05:14 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/05 10:39:51 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/05 16:07:46 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
-	while (*str != '\0')
+	while (*s1 == *s2 && *s1 && *s2)
 	{
-		if (*str < ' ' || *str > '~')
-			return (0);
-		str++;
+		s1++;
+		s2++;
 	}
-	return (1);
+	return *s1 - *s2;
 }
