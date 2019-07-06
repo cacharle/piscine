@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 19:43:32 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/05 10:05:14 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/05 11:52:56 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/05 12:58:36 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+char *ft_strcat(char *dest, char *src)
 {
-	while (*str != '\0')
+	char *dest_head;
+
+	dest_head = dest;
+	while (*dest)
+		dest++;
+	while (*src)
 	{
-		if (*str < ' ' || *str > '~')
-			return (0);
-		str++;
+		*dest = *src;
+		dest++;
+		src++;
 	}
-	return (1);
+		*dest = *src;
+	return dest_head;
 }

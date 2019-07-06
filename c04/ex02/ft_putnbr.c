@@ -1,22 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 19:43:32 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/05 10:05:14 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/06 07:24:04 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/06 08:34:48 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+#include <unistd.h>
+
+void	ft_putchar(char c)
 {
-	while (*str != '\0')
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	int 			i;
+	int				rev_digits[100];
+	unsigned int	nbu;
+
+	if (nb < 0)
 	{
-		if (*str < ' ' || *str > '~')
-			return (0);
-		str++;
+		ft_putchar('-');
+		nbu = -nb;
+	} else
+		nbu = nb;
+	i = 0;
+	while (nbu > 0)
+	{
+		rev_digits[i] = nbu % 10;
+		nbu /= 10;
+		i++;
 	}
-	return (1);
+	while (i > 0)
+	{
+		i--;
+		ft_putchar(rev_digits[i] + '0');
+	}
 }

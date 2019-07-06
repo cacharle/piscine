@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:27:01 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/05 14:31:13 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/05 15:43:34 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/06 07:12:28 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlen(char *str)
+unsigned int	my_strlen(char *str)
 {
-	unsigned int counter;
+	int counter;
 
 	counter = 0;
 	while (*str != '\0')
@@ -23,18 +23,22 @@ unsigned int	ft_strlen(char *str)
 	return (counter);
 }
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
+	unsigned int	len_src;
+	unsigned int	len_dest;
 
-	if (size == 0)
-		return (ft_strlen(src));
-	i = 0;
-	while (i < size - 1 && src[i] != '\0')
+	len_src = my_strlen(src);
+	len_dest = my_strlen(dest);
+	if (!len_src)
+		return (len_dest);
+	i = len_dest - 1;
+	while (i < size - len_dest - 1 && src[i])
 	{
 		dest[i] = src[i];
 		i++;
 	}
 	dest[i] = '\0';
-	return (ft_strlen(src));
+	return (len_src + len_dest);
 }

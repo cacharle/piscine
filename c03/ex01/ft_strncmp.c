@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 19:43:32 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/05 10:05:14 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/05 10:50:46 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/05 16:06:57 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	while (*str != '\0')
-	{
-		if (*str < ' ' || *str > '~')
-			return (0);
-		str++;
-	}
-	return (1);
+	unsigned int	i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n - 1)
+		i++;
+	return s1[i] - s2[i];
 }
