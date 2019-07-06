@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 07:24:04 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/06 08:34:48 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/06 08:47:01 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ void	ft_putnbr(int nb)
 	int				rev_digits[100];
 	unsigned int	nbu;
 
+	if (nb == 0)
+	{
+		ft_putchar('0');
+		return;
+	}
 	if (nb < 0)
 	{
 		ft_putchar('-');
