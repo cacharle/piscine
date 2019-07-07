@@ -1,46 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 07:24:04 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/06 15:09:46 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/06 16:48:21 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/06 17:14:26 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int ft_iterative_factorial(int nb)
 {
-	write(1, &c, 1);
-}
+	int	acc;
+	int	i;
 
-void	ft_putnbr(int nb)
-{
-	int				i;
-	int				rev_digits[100];
-	unsigned int	nbu;
-
-	if (nb == 0)
-	{
-		ft_putchar('0');
-		return ;
-	}
-	nbu = nb;
 	if (nb < 0)
-	{
-		ft_putchar('-');
-		nbu = -nb;
-	}
-	i = 0;
-	while (nbu > 0)
-	{
-		rev_digits[i] = nbu % 10;
-		nbu /= 10;
-		i++;
-	}
-	while (i > 0)
-		ft_putchar(rev_digits[--i] + '0');
+		return (0);
+	if (nb == 0)
+		return (1);
+	acc = 1;
+	while (nb > 0)
+		acc *= nb--;
+	return (acc);
 }

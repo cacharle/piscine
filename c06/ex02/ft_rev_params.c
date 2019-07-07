@@ -1,46 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 07:24:04 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/06 15:09:46 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/07 15:02:56 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/07 15:10:34 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int	main(int argc, char **argv)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putnbr(int nb)
-{
-	int				i;
-	int				rev_digits[100];
-	unsigned int	nbu;
-
-	if (nb == 0)
+	while (argc > 1)
 	{
-		ft_putchar('0');
-		return ;
+		argc--;
+		while (*argv[argc])
+		{
+			write(1, argv[argc], 1);
+			argv[argc]++;
+		}
+		write(1, "\n", 1);
 	}
-	nbu = nb;
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nbu = -nb;
-	}
-	i = 0;
-	while (nbu > 0)
-	{
-		rev_digits[i] = nbu % 10;
-		nbu /= 10;
-		i++;
-	}
-	while (i > 0)
-		ft_putchar(rev_digits[--i] + '0');
+	return (0);
 }

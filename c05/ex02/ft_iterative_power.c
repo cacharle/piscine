@@ -1,46 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 07:24:04 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/06 15:09:46 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/06 17:20:15 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/06 17:39:06 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int ft_iterative_power(int nb, int power)
 {
-	write(1, &c, 1);
-}
+	int acc;
 
-void	ft_putnbr(int nb)
-{
-	int				i;
-	int				rev_digits[100];
-	unsigned int	nbu;
-
-	if (nb == 0)
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	acc = 1;
+	while (power > 0)
 	{
-		ft_putchar('0');
-		return ;
+		acc *= nb;
+		power--;
 	}
-	nbu = nb;
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nbu = -nb;
-	}
-	i = 0;
-	while (nbu > 0)
-	{
-		rev_digits[i] = nbu % 10;
-		nbu /= 10;
-		i++;
-	}
-	while (i > 0)
-		ft_putchar(rev_digits[--i] + '0');
+	return (acc);
 }

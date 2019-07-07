@@ -17,12 +17,14 @@ int main()
 	ft_putstr(s);
 	printf("\n");
 
+	printf("----------------------\n");
 	ft_putnbr(0); printf("\n");
 	ft_putnbr(42); printf("\n");
 	ft_putnbr(-42); printf("\n");
 	ft_putnbr(INT_MAX); printf("\n");
 	ft_putnbr(INT_MIN); printf("\n");
 
+	printf("----------------------\n");
 	char *s_happypath = "42";
 	char *s_happypathn = "-42";
 	char *s_int0 = "0";
@@ -33,6 +35,7 @@ int main()
 	char *pos = "++--+++--4";
 	char *garbage_tail = "76iqu21#!@";
 	char *all = "\n\t  \v++++---12341234#3%^@";
+	char *subject_test = " ---+--+1234ab567";
 	printf("%d\n", ft_atoi(s_happypath));
 	printf("%d\n", ft_atoi(s_happypathn));
 	printf("%d\n", ft_atoi(s_int0));
@@ -43,18 +46,31 @@ int main()
 	printf("%d\n", ft_atoi(pos));
 	printf("%d\n", ft_atoi(garbage_tail));
 	printf("%d\n", ft_atoi(all));
+	printf("%d\n", ft_atoi(subject_test));
 
 	printf("----------------------\n");
-	// doit gerer les nombres negatifs ??
 	ft_putnbr_base(42, "0123456789"); printf("\n");
+	ft_putnbr_base(-42, "0123456789"); printf("\n");
 	ft_putnbr_base(42, "01"); printf("\n");
+	ft_putnbr_base(-42, "01"); printf("\n");
 	ft_putnbr_base(42, "0123456789abcdef"); printf("\n");
 	ft_putnbr_base(42, "01234567"); printf("\n");
-	ft_putnbr_base(INT_MAX - 5, "01"); printf("\n");
+	ft_putnbr_base(INT_MAX, "0123456789abcdef"); printf("\n");
+	ft_putnbr_base(INT_MIN, "0123456789abcdef"); printf("\n");
 	ft_putnbr_base(INT_MAX, "");
 	ft_putnbr_base(INT_MAX, "a");
+	ft_putnbr_base(INT_MAX, "abb");
+	ft_putnbr_base(INT_MAX, "-0123456789");
 
 	printf("----------------------\n");
 	printf("%d\n", ft_atoi_base("111000", "01"));
 	printf("%d\n", ft_atoi_base("ff", "0123456789abcdef"));
+	printf("%d\n", ft_atoi_base("52", "01234567"));
+	printf("%d\n", ft_atoi_base("2a", "0123456789abcdef"));
+	printf("%d\n", ft_atoi_base("7fffffff", "0123456789abcdef"));
+	printf("%d\n", ft_atoi_base("ff", "0123-456789abcdef"));
+	printf("%d\n", ft_atoi_base("ff", "01\r23456789abcdef"));
+	printf("%d\n", ft_atoi_base("ff", "abcc"));
+	printf("%d\n", ft_atoi_base("ff", ""));
+	printf("%d\n", ft_atoi_base("ff", "a"));
 }

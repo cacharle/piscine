@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 07:47:44 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/06 11:12:25 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/07 12:30:16 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,28 +48,30 @@ int		my_strlen(char *str)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int		radix;
-	int		i;
-	int		nb;
-	char	rev_digits[1024];
+	int				radix;
+	int				i;
+	unsigned int	nbu;
+	char			rev_digits[1024];
 
 	if (!check_base(base))
-		return;
+		return ;
 	radix = my_strlen(base);
-	i = 0;
-	/*printf("\n%d base %d (%s)\n", nbr, radix,  base);*/
-	while (nbr > 0)
+	nbu = nbr;
+	if (nbr < 0)
 	{
-		/*printf("%d %d %c\n", nbr, nbr % radix, base[nbr % radix]);*/
-		rev_digits[i] = base[nbr % radix];
-		nbr /= radix;
+		write(1, "-", 1);
+		nbu = -nbr;
+	}
+	i = 0;
+	while (nbu > 0)
+	{
+		rev_digits[i] = base[nbu % radix];
+		nbu /= radix;
 		i++;
 	}
-	/*for (int k = 0; k < 10; k++)*/
-		/*printf("%d ", rev_digits[k]);*/
 	while (i > 0)
 	{
 		i--;
-		write(1, rev_digits  + i, 1);
+		write(1, rev_digits + i, 1);
 	}
 }
