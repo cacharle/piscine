@@ -9,16 +9,17 @@
 
 int main()
 {
-	char s1[] = "bonjour";
-	char s2[] = "bonjouj";
-	printf("%d : %d\n", ft_strcmp(s1, s2), strcmp(s1, s2));
+	char s3[] = "";
+	char s4[] = "qwer";
+	printf("%d : %d\n", ft_strcmp(s3, s4), strcmp(s3, s4));
 
-	unsigned int size = 10;
-	printf("%d : %d\n", ft_strncmp(s1, s2, size), strncmp(s1, s2, size));
+	unsigned int size = 4;
+	printf("%d : %d\n", ft_strncmp(s3, s4, size), strncmp(s3, s4, size));
 
+	printf("-----------------\n");
 	char *head;
 	char dest[10] = "abc";
-	char src[] = "defg";
+	char src[] = "a";
 	head =  ft_strcat(dest, src);
 	printf("\n%s ", head);
 	for (int i = 0; i < 15; i++)
@@ -29,45 +30,47 @@ int main()
 	for (int i = 0; i < 15; i++)
 		printf("%d ", head[i]);
 
-	unsigned int nsize = 1;
+	printf("\n-----------------\n");
+	unsigned int nsize = 2;
 	char *nhead;
-	char ndest[10] = "abc";
+	char ndest[12] = "abc";
 	char nsrc[] = "defg";
 	nhead =  ft_strncat(ndest, nsrc, nsize);
 	printf("\n%s ", nhead);
 	for (int i = 0; i < 15; i++)
 		printf("%d ", nhead[i]);
-	char _ndest[10] = "abc";
+	char _ndest[12] = "abc";
 	nhead = strncat(_ndest, nsrc, nsize);
 	printf("\n%s ", nhead);
 	for (int i = 0; i < 15; i++)
 		printf("%d ", nhead[i]);
 
-	printf("\n");
+	printf("\n-----------------\n");
 	char *haystack = "abcdefg";
-	char *needle = "abcdefg";
+	char *needle = "";
 	char *found;
 	found = ft_strstr(haystack, needle);
+	printf("\n%s ", found);
 	if (found)
 		for (int i = 0; i < 5; i++)
 			printf("%d ", found[i]);
-	printf("\n%s\n", found);
 	found = strstr(haystack, needle);
+	printf("\n%s ", found);
 	if (found)
 		for (int i = 0; i < 5; i++)
 			printf("%d ", found[i]);
-	printf("\n%s\n", found);
 
-	unsigned int lsize = 100;
-	char ldest[100] = "abcdef";
-	char lsrc[] = "d";
+	printf("\n-----------------\n");
+	unsigned int lsize = 15;
+	char ldest[15] = "0123456789";
+	char lsrc[] = "doit";
 	printf("\nsize %u, ", ft_strlcat(ldest, lsrc, lsize));
 	printf("%s ", ldest);
 	for (int i = 0; i < 15; i++)
 		printf("%d ", ldest[i]);
-	char _ldest[100] = "abcdef";
+	char _ldest[15] = "0123456789";
 	printf("\nsize %lu, ", strlcat(_ldest, lsrc, lsize));
-	printf("%s ", ldest);
+	printf("%s ", _ldest);
 	for (int i = 0; i < 15; i++)
-		printf("%d ", ldest[i]);
+		printf("%d ", _ldest[i]);
 }

@@ -1,46 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 07:24:04 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/06 15:09:46 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/06 20:17:59 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/07 08:27:21 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int ft_is_prime(int nb)
 {
-	write(1, &c, 1);
-}
+	int	i;
 
-void	ft_putnbr(int nb)
-{
-	int				i;
-	int				rev_digits[100];
-	unsigned int	nbu;
-
-	if (nb == 0)
+	if (nb <= 1)
+		return (0);
+	if (nb <= 3)
+		return (1);
+	if (nb % 2 == 0 || nb % 3 == 0)
+		return (0);
+	i = 5;
+	while (i * i <= nb)
 	{
-		ft_putchar('0');
-		return ;
+		if (nb % i == 0 || nb % (i + 2) == 0)
+			return (0);
+		i += 6;
 	}
-	nbu = nb;
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nbu = -nb;
-	}
-	i = 0;
-	while (nbu > 0)
-	{
-		rev_digits[i] = nbu % 10;
-		nbu /= 10;
-		i++;
-	}
-	while (i > 0)
-		ft_putchar(rev_digits[--i] + '0');
+	return (1);
 }

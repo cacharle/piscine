@@ -6,13 +6,13 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 07:22:38 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/06 08:34:03 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/06 13:15:17 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
 	while (*str)
 	{

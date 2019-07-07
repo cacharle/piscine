@@ -1,46 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 07:24:04 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/06 15:09:46 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/06 17:39:43 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/06 19:32:17 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int ft_recursive_power(int nb, int power)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putnbr(int nb)
-{
-	int				i;
-	int				rev_digits[100];
-	unsigned int	nbu;
-
-	if (nb == 0)
-	{
-		ft_putchar('0');
-		return ;
-	}
-	nbu = nb;
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nbu = -nb;
-	}
-	i = 0;
-	while (nbu > 0)
-	{
-		rev_digits[i] = nbu % 10;
-		nbu /= 10;
-		i++;
-	}
-	while (i > 0)
-		ft_putchar(rev_digits[--i] + '0');
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	if (power == 1)
+		return (nb);
+	return nb * ft_recursive_power(nb, power - 1);
 }
