@@ -6,11 +6,11 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 17:20:15 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/06 17:39:06 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/08 12:06:24 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_iterative_power(int nb, int power)
+int	ft_iterative_power(int nb, int power)
 {
 	int acc;
 

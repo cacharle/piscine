@@ -6,12 +6,11 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 07:50:11 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/07 08:29:02 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/08 12:09:16 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-int is_prime(int nb)
+int	is_prime(int nb)
 {
 	int	i;
 
@@ -31,10 +30,9 @@ int is_prime(int nb)
 	return (1);
 }
 
-int ft_find_next_prime(int nb)
+int	ft_find_next_prime(int nb)
 {
 	while (!is_prime(nb))
 		nb++;
 	return (nb);
 }
-

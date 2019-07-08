@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 15:12:51 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/07 15:27:49 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/08 12:10:53 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int		is_sorted(char **argv, int argc)
 
 void	sort_argv(char **argv, int argc)
 {
-	int	i;
-	char *tmp;
+	int		i;
+	char	*tmp;
 
 	while (!is_sorted(argv, argc))
 	{
@@ -59,9 +59,9 @@ void	sort_argv(char **argv, int argc)
 
 int		main(int argc, char **argv)
 {
-	sort_argv(argv, argc);
 	int	i;
 
+	sort_argv(argv, argc);
 	i = 1;
 	while (i < argc)
 	{

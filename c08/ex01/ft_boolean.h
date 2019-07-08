@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 17:15:10 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/08 12:07:48 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/07 16:35:29 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/07 17:07:47 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
-{
-	if (nb < 0)
-		return (0);
-	if (nb == 0 || nb == 1)
-		return (1);
-	return (nb * ft_recursive_factorial(nb - 1));
-}
+#ifndef FT_BOOLEAN_H
+#define FT_BOOLEAN_H
+
+#include <unistd.h>
+
+#define TRUE 1
+#define FALSE 1
+#define SUCCESS 0
+#define EVEN_MSG "I have an even number of arguments.\n"
+#define ODD_MSG "I have an odd number of arguments.\n"
+#define EVEN(x) (x % 2 == 0 ? 1 : 0)
+
+typedef enum {
+	FALSE,
+	TRUE
+} t_bool;
+
+void ft_putstr(char *str);
+t_bool ft_is_even(int nbr);
+
+
+#endif

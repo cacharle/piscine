@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 07:47:44 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/07 12:30:16 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/07 18:13:58 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,6 @@ void	ft_putnbr_base(int nbr, char *base)
 		nbu /= radix;
 		i++;
 	}
-	while (i > 0)
-	{
-		i--;
+	while (i-- > 0)
 		write(1, rev_digits + i, 1);
-	}
 }
