@@ -1,25 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 20:06:48 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/08 12:08:36 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/07 15:39:50 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/08 07:49:52 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int	i;
+#include <stdlib.h>
+#include <errno.h>
 
-	i = 0;
-	while (i <= nb)
+int		ft_strlen(char *str)
+{
+	int	counter;
+
+	counter = 0;
+	while (str[counter])
+		counter++;
+	return (counter);
+}
+
+char	*ft_strdup(char *src)
+{
+	int		i;
+	char	*dup_ptr;
+
+	dup_ptr = malloc(sizeof(char) * ft_strlen(src));
+	if (dup_ptr == NULL)
 	{
-		if (i * i == nb)
-			return (i);
+		errno = ENOMEM;
+		return (NULL);
+	}
+	i = 0;
+	while (src[i])
+	{
+		dup_ptr[i] = src[i];
 		i++;
 	}
-	return (0);
+	dup_ptr[i] = '\0';
+	return (dup_ptr);
 }

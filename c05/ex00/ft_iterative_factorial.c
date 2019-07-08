@@ -6,11 +6,11 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 16:48:21 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/06 17:14:26 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/08 12:06:59 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_iterative_factorial(int nb)
+int	ft_iterative_factorial(int nb)
 {
 	int	acc;
 	int	i;
