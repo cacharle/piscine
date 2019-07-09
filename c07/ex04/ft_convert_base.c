@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/06 08:07:17 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/08 16:35:32 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/08 16:16:53 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/09 09:05:47 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	check_the_base(char *base)
+int		check_base(char *base)
 {
 	int	i;
 	int	j;
@@ -36,51 +36,30 @@ int	check_the_base(char *base)
 	return (1);
 }
 
-int	my_pow(int base, int exponent)
+int		ft_pow(int base, int exponent)
 {
 	int	accumulator;
 
 	accumulator = 1;
-	while (exponent > 0)
-	{
+	while (exponent-- > 0)
 		accumulator *= base;
-		exponent--;
-	}
 	return (accumulator);
 }
 
-int	position_in_base(char digit, char *base)
+int		ft_atoi_base(char *nbr, char *base)
 {
-	int	i;
 
-	i = 0;
-	while (base[i] != digit)
-		i++;
-	return (i);
 }
 
-// CHECK THE STR NOT JUST THE BASE (you idiot)
-int	ft_atoi_base(char *str, char *base)
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int	radix;
-	int	i;
-	int	j;
-	int	nb;
+	int		converted_nb;
+	char	*converted_to
 
-	if (!check_the_base(base))
-		return (0);
-	nb = 0;
-	radix = 0;
-	while (base[radix])
-		radix++;
-	i = 0;
-	while (str[i])
-		i++;
-	j = 0;
-	while (--i >= 0)
-	{
-		nb += my_pow(radix, i) * position_in_base(str[j], base);
-		j++;
-	}
-	return (nb);
+	if (!check_base(base_from) || !check_base(base_to))
+		return (NULL);
+	converted_nb = ft_atoi_base(nbr, base_from);
+	printf("%d\n", convert_nb);
+	/*converted_to = ft_itoa_base(converted_nb, base_to);*/
+	/*return (converted_to);*/
 }

@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 08:19:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/08 11:00:55 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/09 09:42:11 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "ex02/ft_ultimate_range.c"
 #include "ex03/ft_strjoin.c"
 /*#include "ex04/ft_strdup.c"*/
-/*#include "ex05/ft_strdup.c"*/
+#include "ex05/ft_split.c"
 
 int main()
 {
@@ -48,14 +48,21 @@ int main()
 	printf("\n ");
 
 	printf("---------------\n");
-	char *strs[] = {"bonjour", "je", "suis", "charle"};
+	char *strs[] = {"bon", "je", "suis", "charles"};
 	char *sep = ", ";
 	int size = 4;
 	char *join;
-	/*printf("%d\n", cummulative_strlen(size, strs));*/
 	join = ft_strjoin(size, strs, sep);
-	printf("%s\n", join);
+	printf("[%d] %s\n", my_strlen(join), join);
+	/*for (int i = 0; i < my_strlen(join) + 1; i++)*/
+		/*printf("%d ", join[i]);*/
 	free(join);
+
+	printf("\n---------------\n");
+	char *str = "bon,je,suis,charles";
+	char *charset = ",";
+	char **sstrs = ft_split(str, charset);
+	free(sstrs);
 
 	return 0;
 }

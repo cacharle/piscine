@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 16:14:25 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/08 11:08:00 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/09 09:08:52 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		my_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	return (i);
 }
@@ -31,12 +31,7 @@ int		cummulative_strlen(int size, char **strs)
 	i = 0;
 	while (size > 0)
 	{
-		i = 0;
-		while (strs[size - 1][i])
-		{
-			i++;
-			len++;
-		}
+		len += my_strlen(strs[size - 1]);
 		size--;
 	}
 	return (len);
@@ -51,7 +46,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	char	*join;
 
 	join = (char*)malloc(sizeof(char) * (cummulative_strlen(size, strs)
-						 + my_strlen(sep) * (size - 1)));
+							+ my_strlen(sep) * (size - 1) + 1));
 	j = 0;
 	l = 0;
 	while (l < size)

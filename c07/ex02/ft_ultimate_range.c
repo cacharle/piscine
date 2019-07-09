@@ -6,13 +6,13 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 16:09:06 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/08 08:38:29 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/09 07:46:19 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int ft_ultimate_range(int **range, int min, int max)
+int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	i;
 

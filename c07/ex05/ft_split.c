@@ -1,45 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/07 15:39:50 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/09 07:36:10 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/08 15:58:03 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/09 09:40:49 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <errno.h>
 
-int		ft_strlen(char *str)
+int		count_segment(char *str, char *charset)
 {
 	int	counter;
+	int	i;
 
 	counter = 0;
-	while (str[counter])
-		counter++;
+	while (*str)
+	{
+		i = 0;
+		while (charset[i])
+			if (str++ == charset[i++])
+			   counter++;
+		str++;
+	}
 	return (counter);
 }
 
-char	*ft_strdup(char *src)
+int		strlen_until_sep(char *str, char *charset)
 {
-	int		i;
-	char	*dup_ptr;
 
-	dup_ptr = (char*)malloc(sizeof(char) * ft_strlen(src));
-	if (dup_ptr == NULL)
-	{
-		errno = ENOMEM;
-		return (NULL);
-	}
-	i = 0;
-	while (src[i])
-	{
-		dup_ptr[i] = src[i];
-		i++;
-	}
-	dup_ptr[i] = '\0';
-	return (dup_ptr);
+}
+
+char **ft_split(char *str, char *charset)
+{
+	char **strs;
+
+	strs = (char**)malloc(sizeof(char*) * count_segment(str, charset));
+	printf("%d\n", count_segment(str, charset));
+	/*while (*str)*/
+	/*{*/
+
+		/*str++;*/
+	/*}*/
+	return (strs);
 }
