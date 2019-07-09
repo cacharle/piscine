@@ -6,13 +6,14 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 20:17:59 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/08 12:08:46 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/09 10:17:58 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_is_prime(int nb)
 {
-	int	i;
+	long unsigned int	i;
+	long unsigned int	nbu;
 
 	if (nb <= 1)
 		return (0);
@@ -20,12 +21,15 @@ int	ft_is_prime(int nb)
 		return (1);
 	if (nb % 2 == 0 || nb % 3 == 0)
 		return (0);
-	i = 5;
-	while (i * i <= nb)
+	i = 1;
+	nbu = nb;
+	while (i * i <= nbu)
 	{
-		if (nb % i == 0 || nb % (i + 2) == 0)
+		if (nbu % (i * 6 - 1) == 0)
 			return (0);
-		i += 6;
+		if (nbu % (i * 6 + 1) == 0)
+			return (0);
+		i += 1;
 	}
 	return (1);
 }
