@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 15:12:51 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/09 16:22:00 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/09 17:40:26 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	sort_argv(char **argv, int argc)
 	}
 }
 
-#include <stdio.h>
 int		main(int argc, char **argv)
 {
 	int	i;
