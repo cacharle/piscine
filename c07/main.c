@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 08:19:02 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/09 09:42:11 by cacharle         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,7 +5,7 @@
 #include "ex01/ft_range.c"
 #include "ex02/ft_ultimate_range.c"
 #include "ex03/ft_strjoin.c"
-/*#include "ex04/ft_strdup.c"*/
+#include "ex04/ft_convert_base.c"
 #include "ex05/ft_split.c"
 
 int main()
@@ -59,10 +47,18 @@ int main()
 	free(join);
 
 	printf("\n---------------\n");
-	char *str = "bon,je,suis,charles";
-	char *charset = ",";
-	char **sstrs = ft_split(str, charset);
-	free(sstrs);
+	printf("%s\n", ft_convert_base("101010", "01", "0123456789"));
+	printf("%s\n", to_base(34, "10"));
+
+	/*printf("\n---------------\n");*/
+	/*char *str = "bon.je.suis,asdofoisafj.ladjsf";*/
+	/*char *charset = "";*/
+	/*char **sstrs = ft_split(str, charset);*/
+	/*for (int i = 0; sstrs[i] != 0; i++)*/
+		/*printf("%s\n", sstrs[i]);*/
+	/*for (int i = 0; sstrs[i] != 0; i++)*/
+		/*free(sstrs[i]);*/
+	/*free(sstrs);*/
 
 	return 0;
 }
