@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stock_str.h                                     :+:      :+:    :+:   */
+/*   boolean_main.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 16:54:59 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/11 14:14:13 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/11 14:40:38 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/11 14:40:40 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STOCK_STR_H
-# define FT_STOCK_STR_H
+#include "./ex01/ft_boolean.h"
 
-typedef struct	s_stock_str
+void	ft_putstr(char *str)
 {
-	int		size;
-	char	*str;
-	char	*copy;
-}				t_stock_str;
+	while (*str)
+		write(1, str++, 1);
+}
 
-#endif
+t_bool	ft_is_even(int nbr)
+{
+	return ((EVEN(nbr)) ? TRUE : FALSE);
+}
+
+int		main(int argc, char **argv)
+{
+	(void)argv;
+	if (ft_is_even(argc - 1) == TRUE)
+		ft_putstr(EVEN_MSG);
+	else
+		ft_putstr(ODD_MSG);
+	return (SUCCESS);
+}

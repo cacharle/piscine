@@ -6,12 +6,12 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 16:33:44 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/07 16:34:58 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/12 14:50:28 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_H
-#define FT_H
+# define FT_H
 
 void	ft_putchar(char c);
 void	ft_swap(int *a, int *b);

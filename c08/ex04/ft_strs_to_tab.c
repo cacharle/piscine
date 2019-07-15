@@ -6,35 +6,58 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 17:15:32 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/08 17:10:21 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/14 11:12:08 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_stock_str.h"
 
-struct s_stock_str *ft_strs_to_tab(int ac, char **av)
+int					ft_strlen(char *str)
+{
+	int	counter;
+
+	counter = 0;
+	while (str[counter])
+		counter++;
+	return (counter);
+}
+
+char				*ft_strdup(char *src)
+{
+	int		i;
+	char	*dup_ptr;
+
+	dup_ptr = (char*)malloc(sizeof(char) * ft_strlen(src));
+	if (dup_ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		dup_ptr[i] = src[i];
+		i++;
+	}
+	dup_ptr[i] = '\0';
+	return (dup_ptr);
+}
+
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
 	int			i;
-	char		*copy;
 	t_stock_str	tmp_stock;
-	t_stock_str	*strs_stocks
+	t_stock_str	*strs_stocks;
 
-	strs_stocks	= malloc(sizeof(t_stock_str) * ac);
-	while (ac-- > 0)
+	if ((strs_stocks = malloc(sizeof(t_stock_str) * (ac + 1))) == NULL)
+		return (NULL);
+	i = 0;
+	while (i < ac)
 	{
-		i = 0
-		while (av[ac][i])
-			i++;
-		tmp_stock = malloc(sizeof(t_stock_str));
-		tmp_stock->size = i;
-		tmp_stock->str = av[ac];
-		copy = malloc(sizeof(char) * i);
-		i = -1;
-		while (av[ac][i++])
-			copy[i] = av[ac][i];
-		tmp_stock->copy = copy;
-		strs_stocks[ac] = tmp_stock;
+		tmp_stock.size = ft_strlen(av[i]);
+		tmp_stock.str = av[i];
+		if ((tmp_stock.copy = ft_strdup(av[i])) == NULL)
+			return (NULL);
+		strs_stocks[i++] = tmp_stock;
 	}
+	strs_stocks[ac].str = 0;
 	return (strs_stocks);
 }
