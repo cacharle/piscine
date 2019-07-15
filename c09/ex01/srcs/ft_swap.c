@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 19:02:31 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/15 10:11:05 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/11 16:18:42 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/11 16:19:31 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+void	ft_swap(int *a, int *b)
 {
-	unsigned int	i;
+	int	tmp;
 
-	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

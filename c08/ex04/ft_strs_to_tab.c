@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 17:15:32 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/14 11:12:08 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/15 10:12:26 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ int					ft_strlen(char *str)
 	return (counter);
 }
 
-char				*ft_strdup(char *src)
+char				*ft_strndup(char *src)
 {
 	int		i;
 	char	*dup_ptr;
 
-	dup_ptr = (char*)malloc(sizeof(char) * ft_strlen(src));
+	dup_ptr = (char*)malloc(sizeof(char) * ft_strlen(src) + 1);
 	if (dup_ptr == NULL)
 		return (NULL);
 	i = 0;
@@ -54,7 +54,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	{
 		tmp_stock.size = ft_strlen(av[i]);
 		tmp_stock.str = av[i];
-		if ((tmp_stock.copy = ft_strdup(av[i])) == NULL)
+		if ((tmp_stock.copy = ft_strndup(av[i])) == NULL)
 			return (NULL);
 		strs_stocks[i++] = tmp_stock;
 	}

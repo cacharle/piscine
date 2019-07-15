@@ -1,28 +1,36 @@
-SRCDIR = srcs
-SRC = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
-OBJ = $(SRC:.c = .o)
-INCLUDEDIR = includes
-INCLUDES = ft.h
+OUT = libft.a
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror
-OUT = libft.a
+OBJ = srcs/ft_putchar.o srcs/ft_swap.o srcs/ft_putstr.o srcs/ft_strlen.o srcs/ft_strcmp.o
 
-all: OUT
 .PHONY: all
+all: $(OUT)
 
 $(OUT): $(OBJ)
-	ar -crs $(OBJ)
+	ar -crs $(OUT) $(OBJ)
 
-$(OBJ): %.o: %.c
+srcs/ft_putchar.o: srcs/ft_putchar.c includes/ft.h
+	$(CC) $(CCFLAGS) -c $< -o $@
+
+srcs/ft_swap.o: srcs/ft_swap.c includes/ft.h
+	$(CC) $(CCFLAGS) -c $< -o $@
+
+srcs/ft_putstr.o: srcs/ft_putstr.c includes/ft.h
+	$(CC) $(CCFLAGS) -c $< -o $@
+
+srcs/ft_strlen.o: srcs/ft_strlen.c includes/ft.h
+	$(CC) $(CCFLAGS) -c $< -o $@
+
+srcs/ft_strcmp.o: srcs/ft_strcmp.c includes/ft.h
 	$(CC) $(CCFLAGS) -c $< -o $@
 
 .PHONY: clean
 clean:
-	rm -f srcs/*.o
+	rm -f $(OBJ)
 
 .PHONY: fclean
 fclean: clean
-	rm $(OUT)
+	rm -f $(OUT)
 
 .PHONY: re
 re: fclean all
