@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stock_str.h                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 16:54:59 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/11 14:14:13 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/13 11:30:35 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/14 22:36:55 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STOCK_STR_H
-# define FT_STOCK_STR_H
+#include <unistd.h>
+#include "include.h"
 
-typedef struct	s_stock_str
+int	main(int argc, char **argv)
 {
-	int		size;
-	char	*str;
-	char	*copy;
-}				t_stock_str;
+	t_views views;
+	t_board board;
+	int		solved;
 
-#endif
+	if (argc != 2)
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
+	if (!check_arg(argv[1]))
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
+	views = parse_arg(argv[1]);
+	board = init_square(4);
+	solved = FALSE;
+	solve(board, views, &solved);
+	if (!solved)
+		write(1, "Error\n", 6);
+	return (0);
+}

@@ -36,6 +36,7 @@ int main()
 	char *garbage_tail = "76iqu21#!@";
 	char *all = "\n\t  \v++++---12341234#3%^@";
 	char *subject_test = " ---+--+1234ab567";
+	char *nothing = "  --+qwer";
 	printf("%d\n", ft_atoi(s_happypath));
 	printf("%d\n", ft_atoi(s_happypathn));
 	printf("%d\n", ft_atoi(s_int0));
@@ -47,6 +48,7 @@ int main()
 	printf("%d\n", ft_atoi(garbage_tail));
 	printf("%d\n", ft_atoi(all));
 	printf("%d\n", ft_atoi(subject_test));
+	printf("%d\n", ft_atoi(nothing));
 
 	printf("----------------------\n");
 	ft_putnbr_base(42, "0123456789"); printf("\n");
@@ -57,6 +59,7 @@ int main()
 	ft_putnbr_base(42, "01234567"); printf("\n");
 	ft_putnbr_base(INT_MAX, "0123456789abcdef"); printf("\n");
 	ft_putnbr_base(INT_MIN, "0123456789abcdef"); printf("\n");
+	ft_putnbr_base(0, "0123456789"); printf("\n");
 	ft_putnbr_base(INT_MAX, "");
 	ft_putnbr_base(INT_MAX, "a");
 	ft_putnbr_base(INT_MAX, "abb");

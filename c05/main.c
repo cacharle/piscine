@@ -80,12 +80,16 @@ int main()
 	printf("prime(%d) = %d\n", 2147483647, ft_is_prime(2147483647));
 	printf("prime(%d) = %d\n", 899, ft_is_prime(899));
 	printf("prime(%d) = %d\n", 289, ft_is_prime(289));
-	/*for (int i = INT_MAX; i > INT_MAX - 1000; i--)*/
+	printf("prime(%d) = %d\n", 2147483424, ft_is_prime(2147483424));
+	/*for (int i = INT_MAX; i > INT_MAX - 1000000; i--)*/
 		/*printf("%d is %d\n", i, ft_is_prime(i));*/
+	for (int i = 3; i <= 41; i++)
+		printf("%d is %d\n", i, ft_is_prime(i));
 
 	printf("---------------------\n");
 	printf("nextp(%d) = %d\n", 21, ft_find_next_prime(21));
 	printf("nextp(%d) = %d\n", 23, ft_find_next_prime(23));
+	printf("prime(%d) = %d\n", 2147483424, ft_find_next_prime(2147483424));
 	printf("nextp(%d) = %d\n", 2147483600, ft_find_next_prime(2147483600));
 	/*for (int i = INT_MAX; i > INT_MAX - 1000000; i--)*/
 		/*printf("%d is %d\n", i, ft_find_next_prime(i));*/

@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:58:03 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/09 12:42:21 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/13 08:15:31 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,41 +24,51 @@ int		count_segment(char *str, char *charset)
 {
 	int	counter;
 
-	counter = 1;
+	counter = 0;
 	while (*str)
 	{
-		if (in_charset(*str, charset))
+		if (!in_charset(*str, charset))
+		{
 			counter++;
+			while (!in_charset(*str, charset) && *str)
+				str++;
+			if (!*str)
+				break ;
+		}
 		str++;
 	}
 	return (counter);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**heck(char *str, char *charset, char *tmp, int i)
 {
 	char	**strs;
-	char	*tmp;
-	int		i;
 	int		j;
-	int		k;
 
-	strs = (char**)malloc(sizeof(char*) * (count_segment(str, charset) + 1));
-	printf("%d\n", count_segment(str, charset));
-	k = 0;
+	if ((strs = (char**)malloc(sizeof(char*)
+			* (count_segment(str, charset) + 1))) == NULL)
+		return (NULL);
+	j = 0;
 	while (*str)
 	{
+		while (in_charset(*str, charset))
+			str++;
 		i = 0;
-		while (!in_charset(str[i], charset))
+		while (!in_charset(str[i], charset) && str[i])
 			i++;
-		tmp = (char*)malloc(sizeof(char) * i);
-		if (tmp == NULL)
-			printf("bonjour");
+		if ((tmp = (char*)malloc(sizeof(char) * i + 1)) == NULL)
+			return (NULL);
 		i = 0;
-		while (!in_charset(*str, charset))
+		while (!in_charset(*str, charset) && *str)
 			tmp[i++] = *str++;
-		strs[k++] = tmp;
-		str++;
+		tmp[i] = '\0';
+		strs[j++] = tmp;
 	}
-	strs[k] = 0;
+	strs[j] = 0;
 	return (strs);
+}
+
+char	**ft_split(char *str, char *charset)
+{
+	return (heck(str, charset, NULL, 0));
 }

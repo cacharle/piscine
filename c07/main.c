@@ -6,6 +6,7 @@
 #include "ex02/ft_ultimate_range.c"
 #include "ex03/ft_strjoin.c"
 #include "ex04/ft_convert_base.c"
+#include "ex04/ft_convert_base2.c"
 #include "ex05/ft_split.c"
 
 int main()
@@ -37,28 +38,55 @@ int main()
 
 	printf("---------------\n");
 	char *strs[] = {"bon", "je", "suis", "charles"};
-	char *sep = ", ";
+	char *sep = "%&^";
 	int size = 4;
 	char *join;
 	join = ft_strjoin(size, strs, sep);
 	printf("[%d] %s\n", my_strlen(join), join);
-	/*for (int i = 0; i < my_strlen(join) + 1; i++)*/
-		/*printf("%d ", join[i]);*/
+	for (int i = 0; i < my_strlen(join) + 1; i++)
+		printf("%d ", join[i]);
 	free(join);
 
 	printf("\n---------------\n");
-	printf("%s\n", ft_convert_base("101010", "01", "0123456789"));
-	printf("%s\n", to_base(34, "10"));
+	char *converted;
+	converted = ft_convert_base("-101010", "01", "0123456789");
+	printf("%s\n", converted);
+	free(converted);
+	converted = ft_convert_base("  -+1010102345678ff", "01", "0123456789abcdef");
+	printf("%s\n", converted);
+	free(converted);
+	converted = ft_convert_base(" \t\f\v +34589qw", "01234567", "012");
+	printf("%s\n", converted);
+	free(converted);
+	converted = ft_convert_base(" \t\f\v +asdf", "fgh", ".?");
+	printf("%s\n", converted);
+	free(converted);
+	printf("%s\n", ft_convert_base(" \t\f\v +34589qw", "01234567", "0+12"));
+	printf("%s\n", ft_convert_base(" \t\f\v +34589qw", "01234567", "012 "));
+	printf("%s\n", ft_convert_base(" \t\f\v +34589qw", "012345-67", "012"));
+	printf("%s\n", ft_convert_base(" \t\f\v +34589qw", "012\t34567", "012"));
+	printf("%s\n", ft_convert_base(" \t\f\v +34589qw", "0", "012"));
+	printf("%s\n", ft_convert_base(" \t\f\v +34589qw", "01", ""));
+	printf("%s\n", ft_convert_base(" \t\f\v +34w", "01", "0123456789"));
+	printf("%s\n", ft_convert_base(" \t\f\v +34w", "01", "!?"));
 
-	/*printf("\n---------------\n");*/
-	/*char *str = "bon.je.suis,asdofoisafj.ladjsf";*/
-	/*char *charset = "";*/
-	/*char **sstrs = ft_split(str, charset);*/
-	/*for (int i = 0; sstrs[i] != 0; i++)*/
-		/*printf("%s\n", sstrs[i]);*/
-	/*for (int i = 0; sstrs[i] != 0; i++)*/
-		/*free(sstrs[i]);*/
-	/*free(sstrs);*/
+	printf("\n---------------\n");
+	char *const str = "3YaZkAP30iGoBWv L  asdf  h LbpX8Hx FWHwB2u1FH0S5";
+	char *begin = "\n \t hgonjour";
+	char *end = "jesuis\n\t   hhh";
+	char *empty = "";
+	char *charset = "\n\t ";
+	char **sstrs = ft_split(begin, charset);
+	for (int i = 0; i < count_segment(begin, charset) + 1; i++)
+	{
+		printf("\n%s: ", sstrs[i]);
+		/*for (int j = 0; j < 10; j++)*/
+			/*printf("%d ", sstrs[i][j]);*/
+	}
+	if (sstrs)
+		for (int i = 0; sstrs[i] != 0; i++)
+			free(sstrs[i]);
+	free(sstrs);
 
 	return 0;
 }

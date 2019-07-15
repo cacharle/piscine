@@ -6,13 +6,13 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 17:09:37 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/07 17:11:50 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/13 08:56:29 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ABS_H
-#define FT_ABS_H
+# define FT_ABS_H
 
-#define ABS(x) (x < 0 ? -x : x)
+# define ABS(x) ( ( (x) < 0) ? -(x) : (x) )
 
 #endif

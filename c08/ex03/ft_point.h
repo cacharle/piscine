@@ -6,16 +6,16 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 17:12:47 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/07 17:15:20 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/11 14:13:47 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_POINT_H
-#define FT_POINT_H
+# define FT_POINT_H
 
 typedef struct {
 	int x;
 	int y;
-} t_point;
+}		t_point;
 
 #endif

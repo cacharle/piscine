@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 16:14:25 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/09 09:08:52 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/12 14:41:33 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,11 @@ int		my_strlen(char *str)
 
 int		cummulative_strlen(int size, char **strs)
 {
-	int	i;
 	int	len;
 
 	len = 0;
-	i = 0;
-	while (size > 0)
-	{
-		len += my_strlen(strs[size - 1]);
-		size--;
-	}
+	while (size-- > 0)
+		len += my_strlen(strs[size]);
 	return (len);
 }
 
@@ -42,26 +37,24 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	int		i;
 	int		j;
 	int		k;
-	int		l;
 	char	*join;
 
 	join = (char*)malloc(sizeof(char) * (cummulative_strlen(size, strs)
-							+ my_strlen(sep) * (size - 1) + 1));
+						+ my_strlen(sep) * (size - (size == 0 ? 0 : 1) + 1)));
+	if (join == NULL)
+		return (NULL);
 	j = 0;
-	l = 0;
-	while (l < size)
+	k = 0;
+	while (k < size)
 	{
 		i = 0;
-		while (strs[l][i])
-		{
-			join[j] = strs[l][i];
-			i++;
-			j++;
-		}
-		k = 0;
-		while (l != size - 1 && sep[k])
-			join[j++] = sep[k++];
-		l++;
+		while (strs[k][i])
+			join[j++] = strs[k][i++];
+		i = 0;
+		while (k != size - 1 && sep[i])
+			join[j++] = sep[i++];
+		k++;
 	}
+	join[j] = '\0';
 	return (join);
 }

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stock_str.h                                     :+:      :+:    :+:   */
+/*   point_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 16:54:59 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/11 14:14:13 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/11 14:50:27 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/11 14:51:48 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STOCK_STR_H
-# define FT_STOCK_STR_H
+#include "ex03/ft_point.h"
 
-typedef struct	s_stock_str
+void	set_point(t_point *point)
 {
-	int		size;
-	char	*str;
-	char	*copy;
-}				t_stock_str;
+	point->x = 42;
+	point->y = 21;
+}
 
-#endif
+int		main(void)
+{
+	t_point	point;
+
+	set_point(&point);
+	return (0);
+}
