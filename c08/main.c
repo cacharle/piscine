@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:24:19 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/13 08:55:06 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/15 10:11:05 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ int main()
 
 	printf("--------------------\n");
 	char **a = (char**)malloc(sizeof(char*) * 3);
-	a[0] = (char*)malloc(sizeof(char) * 32);
-	a[1] = (char*)malloc(sizeof(char) * 32);
-	a[2] = (char*)malloc(sizeof(char) * 32);
-	strcpy(a[0], "binjour");
-	strcpy(a[1], "je");
-	strcpy(a[2], "suis");
+	a[0] = (char*)malloc(sizeof(char) * 1024);
+	a[1] = (char*)malloc(sizeof(char) * 1024);
+	a[2] = (char*)malloc(sizeof(char) * 1024);
+	strcpy(a[0], "ieSrBXBI5d4rW9O2");
+	strcpy(a[1], "eadLhPjehRMwjqv9JJ7Q0WiLTBoVxsLx");
+	strcpy(a[2], "MKynFC5rJwCJ0jdD");
 	t_stock_str *b = ft_strs_to_tab(3, a);
 	for (int i = 0; b[i].str != 0; i++)
-		printf("%s | %s | %d\n", b[i].str, b[i].copy, b[i].size);
+		printf("%s \n%s | %d\n", b[i].str, b[i].copy, b[i].size);
 
 	b[0].copy = "bafj";
 	ft_show_tab(b);
