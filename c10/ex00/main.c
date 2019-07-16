@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 18:06:43 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/11 18:45:01 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/15 13:45:33 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,31 @@
 #define BUFFER_SIZE 1
 #include <stdio.h>
 
-int	write_buffer(char *buf)
+void	read_write_file(int	fildes)
 {
 	int i;
+	int	writing;
+	char	buf[BUFFER_SIZE];
 
-	i = 0;
-	while (buf[i])
+	writing = 1;
+	while (writing)
 	{
-		write(STDOUT_FILENO, &buf[i], 1);
-		/*printf("%d %c\n", buf[i], buf[i]);*/
-		if (buf[i] == -1)
-			return (1);
-		i++;
+		if (read(fildes, buf, BUFFER_SIZE) == 0)
+			break;
+		i = 0;
+		while (buf[i])
+		{
+			write(STDOUT_FILENO, &buf[i], 1);
+			if (buf[i] == -1)
+				writing = 0;
+			i++;
+		}
 	}
-	return (0);
 }
 
 int main(int argc, char **argv)
 {
 	int		fildes;
-	char	buf[BUFFER_SIZE];
 	int		reading;
 
 	if (argc == 1)
@@ -52,12 +57,7 @@ int main(int argc, char **argv)
 		write(STDERR_FILENO, "Cannot read file.\n", 18);
 		return (1);
 	}
-	while (1)
-	{
-		if (read(fildes, buf, BUFFER_SIZE) == 0)
-			break;
-		write_buffer(buf);
-	}
+	read_write_file(fildes);
 	close(fildes);
 	return (0);
 }

@@ -6,11 +6,11 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 16:19:43 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/11 16:20:18 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/16 09:36:56 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -19,4 +19,3 @@ int ft_strlen(char *str)
 		i++;
 	return (i);
 }
-
