@@ -6,11 +6,12 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 16:17:16 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/11 16:18:11 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/16 07:29:45 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "ft.h"
 
 void	ft_putstr(char *str)
 {

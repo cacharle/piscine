@@ -1,0 +1,65 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+w-r1-p2.s19.be
+Darwin 16.7.0 x86_64
+$> date
+Fri Jul 12 17:56:18 CEST 2019
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: auto-exam/2019/c-piscine-exam-01/exam_20190712/cacharle
+
+= Git history ==================================================================
+$> git -C /var/folders/_m/wmzv2nsn7918t3fjlm5kpcp80000gq/T/tmppmgK3M/user log --pretty='%H - %an, %ad : %s'
+79c5bf10efda0eead115b274dac91ad92587a53d - Exam 42, Fri Jul 12 17:55:47 2019 +0200 : wdmatch
+39cdf357b40ced49f3ac6290d932c7801816115d - Exam 42, Fri Jul 12 17:22:53 2019 +0200 : rotone
+c265e4850d0962b936392aca4f3fd6668bd213b2 - Exam 42, Fri Jul 12 17:11:27 2019 +0200 : rev_print
+9addd4166252d59255a58e3c6c1c7a1e926b37d3 - Exam 42, Fri Jul 12 17:04:19 2019 +0200 : hello
+ 
+= Collected files ==========================================
+$> ls -lAR /var/folders/_m/wmzv2nsn7918t3fjlm5kpcp80000gq/T/tmppmgK3M/user
+total 8
+-rw-r--r--  1 deepthought  deepthought  936 Jul 12 17:56 __GIT_HISTORY
+drwxr-xr-x  3 deepthought  deepthought  102 Jul 12 17:56 hello
+drwxr-xr-x  3 deepthought  deepthought  102 Jul 12 17:56 rev_print
+drwxr-xr-x  3 deepthought  deepthought  102 Jul 12 17:56 rotone
+drwxr-xr-x  3 deepthought  deepthought  102 Jul 12 17:56 wdmatch
+
+/var/folders/_m/wmzv2nsn7918t3fjlm5kpcp80000gq/T/tmppmgK3M/user/hello:
+total 8
+-rw-r--r--  1 deepthought  deepthought  965 Jul 12 17:56 hello.c
+
+/var/folders/_m/wmzv2nsn7918t3fjlm5kpcp80000gq/T/tmppmgK3M/user/rev_print:
+total 8
+-rw-r--r--  1 deepthought  deepthought  1142 Jul 12 17:56 rev_print.c
+
+/var/folders/_m/wmzv2nsn7918t3fjlm5kpcp80000gq/T/tmppmgK3M/user/rotone:
+total 8
+-rw-r--r--  1 deepthought  deepthought  1363 Jul 12 17:56 rotone.c
+
+/var/folders/_m/wmzv2nsn7918t3fjlm5kpcp80000gq/T/tmppmgK3M/user/wdmatch:
+total 8
+-rw-r--r--  1 deepthought  deepthought  1448 Jul 12 17:56 wdmatch.c
+ 
+= wdmatch ======================================================================
+$> gcc -Wextra -Wall -Werror wdmatch.c -o user_exe 
+wdmatch.c:25:7: error: unused variable 'k' [-Werror,-Wunused-variable]
+        int             k;
+                        ^
+1 error generated.
+
+Could not compile 'user_exe'
+Grade: 0
+
+= Final grade: 0 ===============================================================

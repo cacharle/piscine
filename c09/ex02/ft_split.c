@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:58:03 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/15 09:21:14 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/16 09:18:23 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ char	**heck(char *str, char *charset, char *tmp, int i)
 		while (!in_charset(*str, charset) && *str)
 			tmp[i++] = *str++;
 		tmp[i] = '\0';
-		strs[j++] = tmp;
+		if (i != 0)
+			strs[j++] = tmp;
 	}
 	strs[j] = 0;
 	return (strs);
@@ -70,7 +71,5 @@ char	**heck(char *str, char *charset, char *tmp, int i)
 
 char	**ft_split(char *str, char *charset)
 {
-	if (!*str)
-		return (NULL);
 	return (heck(str, charset, NULL, 0));
 }
