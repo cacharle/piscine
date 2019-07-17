@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/15 16:45:20 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/16 14:10:58 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/17 07:29:52 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/17 16:37:31 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,34 @@
 
 int	main(int argc, char **argv)
 {
-	int		i;
-	int		status;
+	int	x;
+	int	y;
+	int	operator_index;
+	int (*operators[5])(int, int);
 
-	status = 0;
-	if (argc == 1)
-	{
-		read_stdin();
+	operators[0] = &add;
+	operators[1] = &subtract;
+	operators[2] = &multiply;
+	operators[3] = &divide;
+	operators[4] = &modulo;
+	operator_index = parse(argc, argv);
+	if (operator_index == -1)
 		return (0);
-	}
-	i = 1;
-	while (i < argc)
+	if (operator_index == -2)
+		ft_putchar('0');
+	else
 	{
-		if (print_file(argv[i]) == -1)
+		x = ft_atoi(argv[1]);
+		y = ft_atoi(argv[3]);
+		if (operator_index == 3 && y == 0)
 		{
-			handle_error(argv[0], argv[i]);
-			status = 1;
+
 		}
-		i++;
+		if (operator_index == 3 && y == 0)
+		{
+		}
+		ft_putnbr((*operators[operator_index])(x, y));
 	}
-	return (status);
+	ft_putchar('\n');
+	return (0);
 }

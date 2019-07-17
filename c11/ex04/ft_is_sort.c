@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/09 14:33:17 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 17:11:04 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/16 21:39:43 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/17 16:34:13 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
-
-typedef struct	s_list
+int ft_is_sort(int *tab, int length, int(*f)(int, int))
 {
-	struct s_list	*next;
-	void			*data;
-}				t_list;
 
-t_list	*ft_create_elem(void *data);
+	int i;
 
-#endif
+	i = 0;
+	while (i < length - 1)
+	{
+		if ((*f)(tab[i], tab[i + 1]) > 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}

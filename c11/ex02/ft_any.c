@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   ft_any.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/09 14:33:17 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 17:11:04 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/16 21:23:26 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/16 21:32:21 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
-
-typedef struct	s_list
+int ft_any(char **tab, int(*f)(char*))
 {
-	struct s_list	*next;
-	void			*data;
-}				t_list;
-
-t_list	*ft_create_elem(void *data);
-
-#endif
+	while (*tab != NULL)
+		if ((*f)(*tab++))
+			return (1);
+	return (0);
+}

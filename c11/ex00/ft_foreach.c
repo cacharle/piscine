@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/09 14:33:17 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 17:11:04 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/16 21:12:43 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/16 21:16:21 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
-
-typedef struct	s_list
+void	ft_foreach(int *tab, int length, void(*f)(int))
 {
-	struct s_list	*next;
-	void			*data;
-}				t_list;
+	int	i;
 
-t_list	*ft_create_elem(void *data);
-
-#endif
+	i = 0;
+	while (i < length)
+		(*f)(tab[i++]);
+}

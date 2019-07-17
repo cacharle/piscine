@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/15 16:45:20 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/16 14:10:58 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/17 13:04:59 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/17 13:05:34 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <libgen.h>
+#include <string.h>
+#include <errno.h>
 #include "include.h"
 
-int	main(int argc, char **argv)
+void	handle_error(char *program_name, char *arg)
 {
-	int		i;
-	int		status;
+	char *error_msg;
 
-	status = 0;
-	if (argc == 1)
-	{
-		read_stdin();
-		return (0);
-	}
-	i = 1;
-	while (i < argc)
-	{
-		if (print_file(argv[i]) == -1)
-		{
-			handle_error(argv[0], argv[i]);
-			status = 1;
-		}
-		i++;
-	}
-	return (status);
+	ft_putstr_err(basename(program_name));
+	ft_putstr_err(": ");
+	ft_putstr_err(arg);
+	ft_putstr_err(": ");
+	error_msg = strerror(errno);
+	ft_putstr_err(error_msg);
+	ft_putstr_err("\n");
+}
+
+void	ft_putstr_err(char *str)
+{
+	while (*str)
+		write(STDERR_FILENO, str++, 1);
 }
