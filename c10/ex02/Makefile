@@ -5,33 +5,31 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/07/17 08:40:22 by cacharle          #+#    #+#              #
-#    Updated: 2019/07/17 08:45:51 by cacharle         ###   ########.fr        #
+#    Created: 2019/07/16 14:50:02 by cacharle          #+#    #+#              #
+#    Updated: 2019/07/17 13:05:52 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-OUT = ft_display_file
+OUT = ft_tail
 CC = gcc
-CCFLAGS = -Wall -Wextra -Werror
+CCFLAGS = -Wall -Wextra #-Werror
+SRC = main.c file.c handle_error.c helper.c
+OBJ = $(SRC:.c=.o)
 
 .PHONY: all
 all: $(OUT)
-	$(CC) $(CCFLAGS) -o $(OUT) main.o
 
+$(OUT): $(OBJ)
+	$(CC) $(CCFLAGS) -o $@ $^
 
-$(OUT): main.o
-	$(CC) $(CCFLAGS) -o $(OUT) main.o
-
-main.o: main.c
-	$(CC) $(CCFLAGS) -c main.c -o main.o
+%.o: %.c include.h
+	$(CC) $(CCFLAGS) -c $< -o $@
 
 .PHONY: clean
 clean:
-	rm -f main.o
+	rm -f $(OBJ)
 
 .PHONY: clean
 fclean: clean
 	rm -f $(OUT)
 
-.PHONY: re
-re: fclean all

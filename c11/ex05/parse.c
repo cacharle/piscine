@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/09 14:33:17 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 17:11:04 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/17 08:05:59 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/17 08:35:50 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
-
-typedef struct	s_list
+int	parse(int argc, char **argv)
 {
-	struct s_list	*next;
-	void			*data;
-}				t_list;
+	int i;
 
-t_list	*ft_create_elem(void *data);
+	if (argc != 4)
+		return (-1);
+	if (argv[2][0] == '+')
+		i = 0;
+	else if (argv[2][0] == '-')
+		i = 1;
+	else if (argv[2][0] == '*')
+		i = 2;
+	else if (argv[2][0] == '/')
+		i = 3;
+	else if (argv[2][0] == '%')
+		i = 4;
+	else
+		 i = -2;
+	return (i);
+}
 
-#endif
+/*int	make_operation(int x, int y, int (*operator)(int, int))*/
+/*{*/
+
+	/*retu*/
+
+/*}*/

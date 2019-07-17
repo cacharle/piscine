@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   operators.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/09 14:33:17 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 17:11:04 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/17 07:38:59 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/17 08:03:34 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
-
-typedef struct	s_list
+int add(int x, int y)
 {
-	struct s_list	*next;
-	void			*data;
-}				t_list;
+	return (x + y);
+}
 
-t_list	*ft_create_elem(void *data);
+int subtract(int x, int y)
+{
 
-#endif
+	return (x - y);
+}
+
+int multiply(int x, int y)
+{
+
+	return (x * y);
+}
+
+int divide(int x, int y)
+{
+	return (x / y);
+}
+
+int modulo(int x, int y)
+{
+	return (x % y);
+}

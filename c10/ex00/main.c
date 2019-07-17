@@ -6,26 +6,26 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 18:06:43 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/15 13:45:33 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/17 08:44:58 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <fcntl.h>
-#define BUFFER_SIZE 1
 #include <stdio.h>
+#define BUFFER_SIZE 1
 
-void	read_write_file(int	fildes)
+void	read_write_file(int fildes)
 {
-	int i;
-	int	writing;
+	int		i;
+	int		writing;
 	char	buf[BUFFER_SIZE];
 
 	writing = 1;
 	while (writing)
 	{
 		if (read(fildes, buf, BUFFER_SIZE) == 0)
-			break;
+			break ;
 		i = 0;
 		while (buf[i])
 		{
@@ -37,10 +37,9 @@ void	read_write_file(int	fildes)
 	}
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	int		fildes;
-	int		reading;
 
 	if (argc == 1)
 	{

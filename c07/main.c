@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 #include <stdlib.h>
 #include <string.h>
 #include "ex00/ft_strdup.c"
@@ -30,7 +31,7 @@ int main()
 
 	printf("---------------\n");
 	int *rult;
-	int len = ft_ultimate_range(&rult, -4, 15);
+	int len = ft_ultimate_range(&rult, 0, INT_MAX);
 	printf("len(%d): ", len);
 	for (int i = 0; i < len; i++)
 		printf("%d ", rult[i]);

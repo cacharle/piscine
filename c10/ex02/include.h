@@ -5,31 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/16 14:07:19 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 08:47:08 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/16 15:26:12 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/17 14:07:21 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INCLUDE_H
 # define INCLUDE_H
 
-# define BUF_SIZE 64
+# define BUF_SIZE 32000
+
 
 /*
-** io.c
+** file.c
 */
 
-int		read_in_buf(int fildes, char buf[BUF_SIZE]);
-int		write_buf(char buf[BUF_SIZE], int size);
-int		read_write_fildes(int fildes);
-void	read_stdin(void);
-int		print_file(char *filename);
+int		print_tail(char *filename, int tail_size);
+int		read_file(int fildes, char **file);
+char	*char_realloc(char *ptr, int size);
 
 /*
 ** helper.c
 */
 
-void	handle_error(char *program_name, char *arg);
+int		ft_strlen(char *str);
+int		ft_atoi(char *str);
+int		pow10(int exponent);
+
+/*
+** handle_error.c
+*/
+
+void	handle_error(char *program_name, char *arg_name);
 void	ft_putstr_err(char *str);
 
 #endif

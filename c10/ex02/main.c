@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/09 14:33:17 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 17:11:04 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/16 14:51:03 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/17 15:43:59 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
+#include <unistd.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <stdio.h> // remove this
+#include "include.h"
 
-typedef struct	s_list
+int		main(int argc, char **argv)
 {
-	struct s_list	*next;
-	void			*data;
-}				t_list;
+	size_t last_size;
+	int i;
+	int status;
 
-t_list	*ft_create_elem(void *data);
-
-#endif
+	status = 0;
+	last_size = ft_atoi(argv[2]);
+	i = 3;
+	while (i < argc)
+	{
+		if (print_tail(argv[i], last_size) == -1)
+		{
+			handle_error(argv[0], argv[i]);
+			return (1);
+		}
+		i++;
+	}
+	return (status);
+}
