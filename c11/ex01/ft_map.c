@@ -6,13 +6,13 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 21:17:12 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/16 21:21:31 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/18 11:00:42 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int *ft_map(int *tab, int length, int(*f)(int))
+int	*ft_map(int *tab, int length, int (*f)(int))
 {
 	int	i;
 	int *mapped;

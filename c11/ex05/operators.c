@@ -6,33 +6,31 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 07:38:59 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 08:03:34 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/18 10:38:57 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int add(int x, int y)
+int	add(int x, int y)
 {
 	return (x + y);
 }
 
-int subtract(int x, int y)
+int	subtract(int x, int y)
 {
-
 	return (x - y);
 }
 
-int multiply(int x, int y)
+int	multiply(int x, int y)
 {
-
 	return (x * y);
 }
 
-int divide(int x, int y)
+int	divide(int x, int y)
 {
 	return (x / y);
 }
 
-int modulo(int x, int y)
+int	modulo(int x, int y)
 {
 	return (x % y);
 }

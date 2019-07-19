@@ -6,11 +6,11 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 21:12:43 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/16 21:16:21 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/18 10:59:42 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_foreach(int *tab, int length, void(*f)(int))
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
 	int	i;
 

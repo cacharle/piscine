@@ -6,11 +6,13 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 21:23:26 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/16 21:32:21 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/18 11:03:40 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_any(char **tab, int(*f)(char*))
+#include <stdlib.h>
+
+int	ft_any(char **tab, int (*f)(char*))
 {
 	while (*tab != NULL)
 		if ((*f)(*tab++))

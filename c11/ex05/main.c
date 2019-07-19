@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 07:29:52 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 16:37:31 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/18 10:38:57 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,8 @@ int	main(int argc, char **argv)
 	{
 		x = ft_atoi(argv[1]);
 		y = ft_atoi(argv[3]);
-		if (operator_index == 3 && y == 0)
-		{
-
-		}
-		if (operator_index == 3 && y == 0)
-		{
-		}
+		if (check_floating_point_error(operator_index, y) == -1)
+			return (0);
 		ft_putnbr((*operators[operator_index])(x, y));
 	}
 	ft_putchar('\n');

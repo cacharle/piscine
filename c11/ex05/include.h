@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 07:38:10 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 08:15:39 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/18 10:40:10 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int		modulo(int x, int y);
 ** parse.c
 */
 
-int	parse(int argc, char **argv);
-//int	make_operation(int x, int y, int (*operator)(int, int))
+int		parse(int argc, char **argv);
+int		check_floating_point_error(int operator_index, int y);
 
 /*
 ** helper.c

@@ -6,9 +6,11 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 08:05:59 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 08:35:50 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/18 10:40:34 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 int	parse(int argc, char **argv)
 {
@@ -27,13 +29,21 @@ int	parse(int argc, char **argv)
 	else if (argv[2][0] == '%')
 		i = 4;
 	else
-		 i = -2;
+		i = -2;
 	return (i);
 }
 
-/*int	make_operation(int x, int y, int (*operator)(int, int))*/
-/*{*/
-
-	/*retu*/
-
-/*}*/
+int	check_floating_point_error(int operator_index, int y)
+{
+	if (operator_index == 3 && y == 0)
+	{
+		write(1, "Stop : division by zero\n", 24);
+		return (-1);
+	}
+	if (operator_index == 4 && y == 0)
+	{
+		write(1, "Stop : modulo by zero\n", 22);
+		return (-1);
+	}
+	return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 09:04:03 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 15:49:06 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/19 06:59:37 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,71 +15,88 @@
 #include <fcntl.h>
 #include "include.h"
 
-int	print_tail(char *filename, int tail_size)
+int		print_tail(char *filename, int tail_size, int argc, int good_counter)
 {
-	char	*file;
 	int		fildes;
-	int		file_len;
 
-	if ((fildes = open(filename, O_RDONLY)) == -1)
+	if ((fildes = open(filename, O_RDONLY)) < 0)
+		return (-1);
+	if (argc != 1 && good_counter != 0)
+		ft_putstr("\n");
+	if (argc > 4)
 	{
-		close(fildes);
-		return (-1);
+		ft_putstr("==> ");
+		ft_putstr(filename);
+		ft_putstr(" <==\n");
 	}
-	file = NULL;
-	if ((file_len = read_file(fildes, &file)) == -1)
+	if ((print_file_tail(fildes, tail_size)) < 0)
 		return (-1);
-	/*printf("%s \n %d", file + 29000, ft_strlen(file));*/
-	/*for (int i = 0; i < 100; i++)*/
-		/*printf("%c", file[i]);*/
-	if (write(STDOUT_FILENO, &file[file_len - tail_size], tail_size) == -1)
-		return (-1);
-	free(file);
-	if (close(fildes) == -1)
+	if ((close(fildes)) < 0)
 		return (-1);
 	return (0);
 }
 
-int	read_file(int fildes, char **file)
+int		print_file_tail(int fildes, int tail_size)
 {
-	size_t	size;
-	size_t	read_size;
-	int	file_len;
+	char	*file;
+	int		file_size;
 
-	/**file = malloc(sizeof(char) * 100);*/
-	file_len = 0;
-	size = BUF_SIZE;
-	read_size = BUF_SIZE;
-	while (!(read_size < BUF_SIZE))
-	{
-		/*printf("size %d\n", size);*/
-		*file = char_realloc(*file, size);
-		read_size = read(fildes, *file, BUF_SIZE);
-		/*printf("%s", *file);*/
-		if (read_size < BUF_SIZE)
-			file_len += ft_strlen(*file + BUF_SIZE - read_size);
-		else
-			file_len += BUF_SIZE;
-		size += BUF_SIZE;
-		/*size *= 2;*/
-	}
-	printf("file_len %d\n", file_len);
-	return (file_len);
+	file = NULL;
+	file_size = read_file(fildes, &file);
+	if (file_size < 0)
+		return (-1);
+	if (tail_size > file_size)
+		tail_size = file_size;
+	if (file == NULL)
+		return (0);
+	if ((write(STDOUT_FILENO, file + file_size - tail_size, tail_size)) < 0)
+		return (-1);
+	free(file);
+	return (0);
 }
 
-char	*char_realloc(char *ptr, int size)
+int		read_file(int fildes, char **file)
+{
+	char	buf[BUF_SIZE];
+	int		file_size;
+	int		read_size;
+
+	file_size = 0;
+	while ((read_size = read(fildes, buf, BUF_SIZE)))
+	{
+		if (read_size < 0)
+			return (-1);
+		*file = ft_memcat(*file, buf, file_size, read_size);
+		file_size += read_size;
+	}
+	return (file_size);
+}
+
+char	*ft_memcat(char *file, char buf[BUF_SIZE], int file_size,
+					int read_size)
 {
 	int		i;
-	char	*reallocated_ptr;
+	char	*file_clone;
 
-	reallocated_ptr = (char*)malloc(sizeof(char) * size);
+	if ((file_clone = malloc(sizeof(char) * (file_size + 1))) == NULL)
+		return (NULL);
+	i = -1;
+	while (++i < file_size)
+		file_clone[i] = file[i];
+	free(file);
+	if ((file = malloc(sizeof(char) * (file_size + read_size + 1))) == NULL)
+		return (NULL);
 	i = 0;
-	while (i < size - BUF_SIZE)
+	while (i < file_size)
 	{
-	reallocated_ptr[i] = ptr[i];
-	i++;
+		file[i] = file_clone[i];
+		i++;
 	}
-	reallocated_ptr[i] = '\0';
-	free(ptr);
-	return (reallocated_ptr);
+	free(file_clone);
+	while (i < file_size + read_size)
+	{
+		file[i] = buf[i - file_size];
+		i++;
+	}
+	return (file);
 }

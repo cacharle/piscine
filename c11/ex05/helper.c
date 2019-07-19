@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 07:53:07 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 07:53:59 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/18 10:38:57 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_putnbr(int nb)
 	ft_putchar(p_nb % 10 + '0');
 }
 
-int	pow10(int exponent)
+int		pow10(int exponent)
 {
 	int	accumulator;
 
@@ -46,7 +46,7 @@ int	pow10(int exponent)
 	return (accumulator);
 }
 
-int	ft_atoi(char *str)
+int		ft_atoi(char *str)
 {
 	int	is_negative;
 	int	nb;

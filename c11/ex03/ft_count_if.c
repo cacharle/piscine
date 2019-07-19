@@ -6,11 +6,11 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 21:35:34 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/16 21:36:42 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/18 11:01:46 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_count_if(char **tab, int length, int(*f)(char*))
+int	ft_count_if(char **tab, int length, int (*f)(char*))
 {
 	int	counter;
 
