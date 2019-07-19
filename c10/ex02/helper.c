@@ -6,12 +6,22 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 17:55:00 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 13:09:38 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/18 07:57:54 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "include.h"
+
+int		ft_putstr(char *str)
+{
+	int	status;
+
+	status = 0;
+	while (*str)
+		status = write(STDOUT_FILENO, str++, 1);
+	return (status);
+}
 
 int		ft_strlen(char *str)
 {

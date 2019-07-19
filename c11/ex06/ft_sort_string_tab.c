@@ -6,9 +6,11 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 21:48:20 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 16:43:27 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/18 11:04:01 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 int		ft_strcmp(char *s1, char *s2)
 {
@@ -34,12 +36,12 @@ int		is_sorted(char **argv)
 	return (1);
 }
 
-void ft_sort_string_tab(char **tab)
+void	ft_sort_string_tab(char **tab)
 {
 	int		i;
 	char	*tmp;
 
-	while (!is_sorted(argv))
+	while (!is_sorted(tab))
 	{
 		i = 1;
 		while (tab[i + 1] != NULL)

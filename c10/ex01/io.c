@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 19:05:32 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 11:19:51 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/19 06:43:50 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		read_in_buf(int fildes, char buf[BUF_SIZE])
 
 int		write_buf(char buf[BUF_SIZE], int size)
 {
-	return (write(1, buf, size));
+	return (write(STDOUT_FILENO, buf, size));
 }
 
 int		read_write_fildes(int fildes)

@@ -6,15 +6,15 @@
 #include "ex02/ft_any.c"
 #include "ex03/ft_count_if.c"
 #include "ex04/ft_is_sort.c"
-/*#include "ex05/ft_foreach.c"*/
-/*#include "ex06/ft_foreach.c"*/
-/*#include "ex07/ft_foreach.c"*/
+#include "ex06/ft_sort_string_tab.c"
+#include "ex07/ft_advanced_sort_string_tab.c"
 
 void f_fe(int x);
 int	f_ma(int x);
 int	f_len(char *x);
 int f_cou(char *x);
 int f_sor(int x, int y);
+int f_lensort(char *a, char *b);
 
 int main()
 {
@@ -46,7 +46,34 @@ int main()
 	printf("sorted %d", ft_is_sort(sorted, 6, &f_sor));
 
 	printf("\n------------------------\n");
+	char **a = malloc(sizeof(char*) * 5);
+	a[0] = malloc(sizeof(char) * 32);
+	a[1] = malloc(sizeof(char) * 32);
+	a[2] = malloc(sizeof(char) * 32);
+	a[3] = malloc(sizeof(char) * 32);
+	strcpy(a[0], "bonjour");
+	strcpy(a[1], "je");
+	strcpy(a[2], "suis");
+	strcpy(a[3], "charles");
+	a[4] = NULL;
+	ft_sort_string_tab(a);
+	for (int i = 0; i < 5; i++)
+		printf("%s\n", a[i]);
 
+	printf("\n------------------------\n");
+	char **b = malloc(sizeof(char*) * 5);
+	b[0] = malloc(sizeof(char) * 32);
+	b[1] = malloc(sizeof(char) * 32);
+	b[2] = malloc(sizeof(char) * 32);
+	b[3] = malloc(sizeof(char) * 32);
+	strcpy(b[0], "bjour");
+	strcpy(b[1], "je");
+	strcpy(b[2], "suis");
+	strcpy(b[3], "carles");
+	b[4] = NULL;
+	ft_advanced_sort_string_tab(b, &f_lensort);
+	for (int i = 0; i < 5; i++)
+		printf("%s\n", b[i]);
 }
 
 void f_fe(int x)
@@ -80,4 +107,16 @@ int f_sor(int x, int y)
 	if (x == y)
 		return (0);
 	return x < y ? -1 : 1;
+}
+
+int f_lensort(char *a, char *b)
+{
+	int i =  0;
+	int j = 0;
+
+	while (a[i])
+		i++;
+	while (b[j])
+		j++;
+	return (i - j);
 }

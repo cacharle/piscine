@@ -6,13 +6,13 @@
 #    By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/17 07:55:23 by cacharle          #+#    #+#              #
-#    Updated: 2019/07/17 08:15:25 by cacharle         ###   ########.fr        #
+#    Updated: 2019/07/18 10:21:51 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OUT = do-op
 CC = gcc
-FLAGS = -Wall -Wextra #-Werror
+FLAGS = -Wall -Wextra -Werror
 SRC = main.c operators.c parse.c helper.c
 OBJ = $(SRC:.c=.o)
 

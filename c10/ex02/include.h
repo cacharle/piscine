@@ -6,28 +6,29 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 15:26:12 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/17 14:07:21 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/19 06:59:18 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INCLUDE_H
 # define INCLUDE_H
 
-# define BUF_SIZE 32000
-
+# define BUF_SIZE 320000
 
 /*
 ** file.c
 */
 
-int		print_tail(char *filename, int tail_size);
+int		print_tail(char *filename, int tail_size, int argc, int good_counter);
+int		print_file_tail(int fildes, int tail_size);
 int		read_file(int fildes, char **file);
-char	*char_realloc(char *ptr, int size);
+char	*ft_memcat(char *file, char buf[BUF_SIZE], int file_size, int read_size);
 
 /*
 ** helper.c
 */
 
+int		ft_putstr(char *str);
 int		ft_strlen(char *str);
 int		ft_atoi(char *str);
 int		pow10(int exponent);
