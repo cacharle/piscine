@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/19 08:29:57 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/19 08:31:03 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/19 11:01:32 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/19 13:35:23 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_list_foreach(t_list *begin_list, void (*f)(void *))
+#include "include.h"
+
+int	main(int argc, char **argv)
 {
-	while (begin_list != NULL)
-	{
-		(*f)(begin_list->data);
-		begin_list = begin_list->next;
-	}
+
+
+	return (0);
 }

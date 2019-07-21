@@ -13,6 +13,7 @@ void f_fe(int x);
 int	f_ma(int x);
 int	f_len(char *x);
 int f_cou(char *x);
+int f_sor_dsc(int x, int y);
 int f_sor(int x, int y);
 int f_lensort(char *a, char *b);
 
@@ -43,21 +44,30 @@ int main()
 
 	printf("\n------------------------\n");
 	int sorted[10] = {1, 2, 3, 4, 5, 5, 6};
-	printf("sorted %d", ft_is_sort(sorted, 6, &f_sor));
+	printf("sorted asc %d\n", ft_is_sort(sorted, 6, &f_sor));
+	int sorted_dsc[10] = {7, 6, 4, 1, 0, -10};
+	printf("sorted dsc %d", ft_is_sort(sorted_dsc, 6, &f_sor_dsc));
+
 
 	printf("\n------------------------\n");
-	char **a = malloc(sizeof(char*) * 5);
+	char **a = malloc(sizeof(char*) * 8);
 	a[0] = malloc(sizeof(char) * 32);
 	a[1] = malloc(sizeof(char) * 32);
 	a[2] = malloc(sizeof(char) * 32);
 	a[3] = malloc(sizeof(char) * 32);
-	strcpy(a[0], "bonjour");
-	strcpy(a[1], "je");
-	strcpy(a[2], "suis");
-	strcpy(a[3], "charles");
-	a[4] = NULL;
+	a[4] = malloc(sizeof(char) * 32);
+	a[5] = malloc(sizeof(char) * 32);
+	a[6] = malloc(sizeof(char) * 32);
+	strcpy(a[0], "dQ4ilBI6T$");
+	strcpy(a[1], "16Tz2R$");
+	strcpy(a[2], "4zQplLtBc$");
+	strcpy(a[3], "7$");
+	strcpy(a[4], "7hE84k$");
+	strcpy(a[5], "841SqkO$");
+	strcpy(a[6], "ItM$");
+	a[7] = NULL;
 	ft_sort_string_tab(a);
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 7; i++)
 		printf("%s\n", a[i]);
 
 	printf("\n------------------------\n");
@@ -100,6 +110,13 @@ int f_cou(char *x)
 	while (x[counter])
 		counter++;
 	return counter > 2;
+}
+
+int f_sor_dsc(int x, int y)
+{
+	if (x == y)
+		return (0);
+	return x > y ? -1 : 1;
 }
 
 int f_sor(int x, int y)
