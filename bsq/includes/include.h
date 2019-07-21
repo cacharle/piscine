@@ -5,40 +5,59 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/16 15:26:12 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/19 07:06:04 by cacharle         ###   ########.fr       */
+/*   Created: 2019/07/19 13:17:32 by cacharle          #+#    #+#             */
+/*   Updated: 2019/07/19 15:55:03 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INCLUDE_H
 # define INCLUDE_H
 
-# define BUF_SIZE 320000
+# define TRUE 1
+# define FALSE 0
+# define EMPTY 0
+# define OBSTACLE 1
+
+struct s_square
+{
+	int	size;
+	int x;
+	int y;
+};
+
+struct s_terrain
+{
+	char	empty;
+	char	fill;
+	char	obstacle;
+	int		size;
+	char	*file;
+}
+
+typedef struct s_terrain	t_terrain;
+typedef struct s_square		t_square;
+typedef int					t_bool;
 
 /*
-** file.c
+** solve.c - Solve the thing (yes)
 */
 
-int		print_tail(char *filename, int tail_size, int argc, int good_counter);
-int		print_file_tail(int fildes, int tail_size);
+
+/*
+** parse.c - Input parsing
+** Put file in string, parse it and check if it's valid
+*/
+
+t_bool check_input(char *input);
+
+/*
+** helper.c - function already made
+*/
+
 int		read_file(int fildes, char **file);
 char	*ft_memcat(char *file, char buf[BUF_SIZE], int file_size,
 					int read_size);
 
-/*
-** helper.c
-*/
 
-int		ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_atoi(char *str);
-int		pow10(int exponent);
-
-/*
-** handle_error.c
-*/
-
-void	handle_error(char *program_name, char *arg_name);
-void	ft_putstr_err(char *str);
 
 #endif

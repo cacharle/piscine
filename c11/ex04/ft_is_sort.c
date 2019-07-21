@@ -6,11 +6,11 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 21:39:43 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/18 21:19:29 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/19 07:37:39 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static is_sort_asc(int *tab, int length, int (*f)(int, int))
+static int	is_sort_asc(int *tab, int length, int (*f)(int, int))
 {
 	int i;
 
@@ -24,7 +24,7 @@ static is_sort_asc(int *tab, int length, int (*f)(int, int))
 	return (1);
 }
 
-static is_sort_dsc(int *tab, int length, int (*f)(int, int))
+static int	is_sort_dsc(int *tab, int length, int (*f)(int, int))
 {
 	int i;
 
@@ -38,7 +38,7 @@ static is_sort_dsc(int *tab, int length, int (*f)(int, int))
 	return (1);
 }
 
-int	ft_is_sort(int *tab, int length, int (*f)(int, int))
+int			ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
 	return (is_sort_dsc(tab, length, f) || is_sort_asc(tab, length, f));
 }

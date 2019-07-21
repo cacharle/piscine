@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 14:33:17 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/09 14:42:55 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/19 08:29:04 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,5 @@ typedef struct	s_list
 	struct s_list	*next;
 	void			*data;
 }				t_list;
-
-t_list	*ft_create_elem(void *data);
 
 #endif

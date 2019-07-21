@@ -24,34 +24,40 @@ void ft_free(void *data);
 
 int main()
 {
+	int a = 1;
+	int b = 2;
+	int c = 3;
+	int d = 4;
+	int e = 5;
+	int f = 6;
+	int g = 7;
 	t_list *list = NULL;
-	int a = 4;
-	void *data = &a;
 
-	list = ft_create_elem(data);
+	list = ft_create_elem(&a);
+	printf("%d", *(int*)list->data);
+
+	printf("\n--------------\n");
+	ft_list_push_front(&list, &b);
 	printf("%d\n", *(int*)list->data);
+	printf("%d\n", *(int*)list->next->data);
+	printf("%s", (char*)list->next->next);
 
-	char b = 'g';
-	data = &b;
-	ft_list_push_front(&list, data);
-	printf("%c\n", *(char*)list->data);
-	printf("%d\n", *(char*)list->next->data);
-	printf("%s\n", (char*)list->next->next);
-
+	printf("\n--------------\n");
 	printf("size %d\n", ft_list_size(list));
-	ft_list_push_front(&list, data);
-	printf("size %d\n", ft_list_size(list));
+	ft_list_push_front(&list, &c);
+	printf("size %d", ft_list_size(list));
 
-	printf("last %d\n", *(int*)ft_list_last(list)->data);
+	printf("\n--------------\n");
+	printf("last %d", *(int*)ft_list_last(list)->data);
 
-	double c = 3.14;
-	data = &c;
-	ft_list_push_back(&list, data);
-	printf("list last %f\n", *(double*)ft_list_last(list)->data);
+	printf("\n--------------\n");
+	ft_list_push_back(&list, &c);
+	printf("list last %d\n", *(int*)ft_list_last(list)->data);
 	t_list *empty = NULL;
-	ft_list_push_back(&empty, data);
-	printf("empty last %f\n", *(double*)ft_list_last(list)->data);
+	ft_list_push_back(&empty, &e);
+	printf("empty last %d\n", *(int*)ft_list_last(empty)->data);
 
+	printf("\n--------------\n");
 	char **strs = malloc(sizeof(char*) * 4);
 	strs[0] = malloc(sizeof(char) * 32);
 	strs[1] = malloc(sizeof(char) * 32);
@@ -72,6 +78,10 @@ int main()
 	printf("%f\n", *(double*)(ft_list_at(list, 1)->data));
 	printf("%s\n", (char*)ft_list_at(list, 2));
 
+	printf("\n--------------\n");
+	// reverse
+
+	printf("\n--------------\n");
 
 
 }

@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 21:48:20 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/18 11:04:01 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/19 07:27:31 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ int		ft_strcmp(char *s1, char *s2)
 	return (*s1 - *s2);
 }
 
-int		is_sorted(char **argv)
+int		is_sorted(char **tab)
 {
 	int i;
 
-	i = 1;
-	while (argv[i + 1] != NULL)
+	i = 0;
+	while (tab[i + 1] != NULL)
 	{
-		if (ft_strcmp(argv[i], argv[i + 1]) > 0)
+		if (ft_strcmp(tab[i], tab[i + 1]) > 0)
 			return (0);
 		i++;
 	}
@@ -43,7 +43,7 @@ void	ft_sort_string_tab(char **tab)
 
 	while (!is_sorted(tab))
 	{
-		i = 1;
+		i = 0;
 		while (tab[i + 1] != NULL)
 		{
 			if (ft_strcmp(tab[i], tab[i + 1]) > 0)
