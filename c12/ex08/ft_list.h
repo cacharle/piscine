@@ -6,12 +6,12 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 14:33:17 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/19 08:28:13 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/23 15:18:20 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIST_H
-#define FT_LIST_H
+# define FT_LIST_H
 
 typedef struct	s_list
 {
