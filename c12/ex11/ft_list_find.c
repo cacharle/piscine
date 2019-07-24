@@ -6,11 +6,14 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:35:32 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/19 08:38:01 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/23 15:43:57 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_list *ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)())
+#include <stdlib.h>
+#include "ft_list.h"
+
+t_list	*ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)())
 {
 	while (begin_list != NULL)
 	{

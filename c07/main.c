@@ -31,14 +31,14 @@ int main()
 
 	printf("---------------\n");
 	int *rult;
-	int len = ft_ultimate_range(&rult, 0, INT_MAX);
+	int len = ft_ultimate_range(&rult, 0, 10);
 	printf("len(%d): ", len);
 	for (int i = 0; i < len; i++)
 		printf("%d ", rult[i]);
 	printf("\n ");
 
 	printf("---------------\n");
-	char *strs[] = {"bon", "je", "suis", "charles"};
+	char *strs[] = {"bon", "je", "", "charles"};
 	char *sep = "%&^";
 	int size = 4;
 	char *join;
