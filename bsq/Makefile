@@ -6,41 +6,50 @@
 #    By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/19 12:09:54 by cacharle          #+#    #+#              #
-#    Updated: 2019/07/19 15:18:19 by cacharle         ###   ########.fr        #
+#    Updated: 2019/07/24 17:47:26 by cacharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-OUT = bsq
-SRCDIR = srcs
-SRC = $(SRCDIR)/main.c
+NAME = bsq
+SRC = main.c algo.c helper.c terrain.c parse.c parse_helper.c utils.c
 OBJ = $(SRC:.c=.o)
-INCLUDES = includes/include.h
+INCLUDES = include.h
 
-CC = gcc
-CCFLAGS = -Wall -Wextra #-Werror
-LDFLAGS = -Iincludes
+CC = cc
+CCFLAGS = -Wall -Wextra -Werror
 
 ARGS = 10 10 2
 
 .PHONY: all
-all: $(OUT)
+all: $(NAME)
 
-$(OUT): $(OBJ)
-	$(CC) $(CCFLAGS) $(LDFLAGS) -o $@ $^
+$(NAME): $(OBJ)
+	$(CC) $(CCFLAGS) -o $@ $^
 
 %.o: %.c $(INCLUDES)
-	$(CC) $(CCFLAGS) $(LDFLAGS) -c -o $@ $<
+	$(CC) $(CCFLAGS) -c -o $@ $<
 
 .PHONY: clean
+clean:
 	rm -f $(OBJ)
 
 .PHONY: fclean
 fclean: clean
-	rm -f $(OUT)
+	rm -f $(NAME)
 
 .PHONY: re
 re: fclean all
 
 .PHONY: generate
 generate:
-	./tests/generate.pl ${ARGS}
+	@./tests/generate.pl ${ARGS}
+
+.PHONY: test
+test: all
+	@./tests/generate.pl ${ARGS} > ./tests/boardtest
+	@./$(NAME) ./tests/boardtest
+
+.PHONY: flex
+flex:
+	@./tests/generate.pl 360 80 100000 > tests/printable
+	@./bsq ./tests/printable

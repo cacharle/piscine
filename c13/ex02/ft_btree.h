@@ -6,7 +6,7 @@
 /*   By: cacharle <charles.cabergs@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 19:29:12 by cacharle          #+#    #+#             */
-/*   Updated: 2019/07/21 18:19:33 by cacharle         ###   ########.fr       */
+/*   Updated: 2019/07/24 12:10:39 by cacharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 typedef struct	s_btree
 {
-	struct s_btree *left;
-	struct s_btree *right;
-	void *item;
+	struct s_btree	*left;
+	struct s_btree	*right;
+	void			*item;
 }				t_btree;
 
 #endif
