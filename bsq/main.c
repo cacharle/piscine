@@ -17,9 +17,7 @@
 int	main(int argc, char **argv)
 {
 	int					i;
-	t_parsed_terrain	*pterrain;
 
-	pterrain = NULL;
 	if (argc == 1)
 	{
 		parse_stdin_print();
