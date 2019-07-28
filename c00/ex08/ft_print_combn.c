@@ -10,16 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <unistd.h>*/
+#include <unistd.h>
 
-/*void	ft_print_combn(int n)*/
-/*{*/
-	/*int	i;*/
+void    ft_putchar(char c)
+{
+    write(STDOUT_FILENO, &c, 1);
+}
 
-	/*if (n == 0)*/
-		/*return ;*/
-	/*i = 0;*/
-	/*while (i < 10)*/
-	/*{*/
-	/*}*/
-/*}*/
+void    comb(int start, int n)
+{
+    int i;
+
+    if (n == 0)
+    {
+        ft_putchar(',');
+        ft_putchar(' ');
+        return ;
+    }
+    i = start + 1;
+    while (i < 10)
+    {
+        ft_putchar(start + '0');
+        ft_putchar(i + '0');
+        comb(i, n - 1);
+        i++;
+    }
+}
+
+void	ft_print_combn(int n)
+{
+    comb(0, n);
+}

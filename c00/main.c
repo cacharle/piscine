@@ -44,6 +44,5 @@ int main()
 	/*ft_putchar('\n');*/
 	/*ft_putnbr(-42);*/
 
-
 	ft_print_combn(2);
 }
