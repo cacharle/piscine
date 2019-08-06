@@ -9,6 +9,7 @@
 #include "ex05/ft_sqrt.c"
 #include "ex06/ft_is_prime.c"
 #include "ex07/ft_find_next_prime.c"
+#include "ex08/ft_queens.c"
 
 int main()
 {
@@ -81,10 +82,10 @@ int main()
 	printf("prime(%d) = %d\n", 899, ft_is_prime(899));
 	printf("prime(%d) = %d\n", 289, ft_is_prime(289));
 	printf("prime(%d) = %d\n", 2147483424, ft_is_prime(2147483424));
-	/*for (int i = INT_MAX; i > INT_MAX - 1000000; i--)*/
-		/*printf("%d is %d\n", i, ft_is_prime(i));*/
-	for (int i = 3; i <= 41; i++)
-		printf("%d is %d\n", i, ft_is_prime(i));
+	// for (int i = INT_MAX; i > INT_MAX - 1000000; i--)
+		// printf("%d is %d\n", i, ft_is_prime(i));
+	// for (int i = 3; i <= 41; i++)
+		// printf("%d is %d\n", i, ft_is_prime(i));
 
 	printf("---------------------\n");
 	printf("nextp(%d) = %d\n", 21, ft_find_next_prime(21));
@@ -93,4 +94,7 @@ int main()
 	printf("nextp(%d) = %d\n", 2147483600, ft_find_next_prime(2147483600));
 	/*for (int i = INT_MAX; i > INT_MAX - 1000000; i--)*/
 		/*printf("%d is %d\n", i, ft_find_next_prime(i));*/
+
+	printf("---------------------\n");
+    // ft_queens();
 }

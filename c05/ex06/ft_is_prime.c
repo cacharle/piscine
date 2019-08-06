@@ -13,7 +13,6 @@
 int	ft_is_prime(int nb)
 {
 	long unsigned int	i;
-	long unsigned int	nbu;
 
 	if (nb <= 1)
 		return (0);
@@ -21,15 +20,12 @@ int	ft_is_prime(int nb)
 		return (1);
 	if (nb % 2 == 0 || nb % 3 == 0)
 		return (0);
-	i = 1;
-	nbu = nb;
-	while (i * i <= nbu) // ne fonctionne pas de 7 a 41
+	i = 5;
+	while (i * i <= nb)
 	{
-		if (nbu % (i * 6 - 1) == 0)
-			return (0);
-		if (nbu % (i * 6 + 1) == 0)
-			return (0);
-		i += 1;
+        if (nb % i == 0 || nb % (i + 2) == 0)
+            return (0);
+        i += 6;
 	}
 	return (1);
 }
