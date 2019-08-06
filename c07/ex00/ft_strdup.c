@@ -28,7 +28,7 @@ char	*ft_strdup(char *src)
 	int		i;
 	char	*dup_ptr;
 
-	dup_ptr = (char*)malloc(sizeof(char) * ft_strlen(src) + 1);
+	dup_ptr = (char*)malloc(sizeof(char) * (ft_strlen(src) + 1));
 	if (dup_ptr == NULL)
 	{
 		errno = ENOMEM;

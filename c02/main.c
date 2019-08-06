@@ -1,5 +1,8 @@
-#include <stdio.h>
+#ifdef linux
+# include <bsd/string.h> // with -lbsd
+#endif
 #include <string.h>
+#include <stdio.h>
 #include <limits.h>
 #include "ex00/ft_strcpy.c"
 #include "ex01/ft_strncpy.c"
@@ -13,6 +16,7 @@
 #include "ex09/ft_strcapitalize.c"
 #include "ex10/ft_strlcpy.c"
 #include "ex11/ft_putstr_non_printable.c"
+#include "ex12/ft_print_memory.c"
 
 int main()
 {
@@ -77,9 +81,9 @@ int main()
 	ft_strcapitalize(tocap);
 	printf("%s\n", tocap);
 
-	char a[] = "qweihroqwier";
+	/* char a[] = "qweihroqwier"; */
 	char ldest[6];
-	char b[] = "qweqweeqwrqwer";
+	/* char b[] = "qweqweeqwrqwer"; */
 	char lsrc[] = "qwroiqwer";
 	printf("len %u : ", ft_strlcpy(ldest, lsrc, sizeof ldest ));
 	for (int i = 0; i < 33; i++)
@@ -100,6 +104,10 @@ int main()
 		ft_putstr_non_printable(unp2);
 	}
 	ft_putstr_non_printable("Coucou\ntu vas bien ?");
+
+	printf("\n---------------------\n");
+	char *addr = "bonjour je suis charles et je le suis bien";
+	ft_print_memory(addr, sizeof addr);
 
 	return 0;
 }
