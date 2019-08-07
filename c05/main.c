@@ -9,7 +9,7 @@
 #include "ex05/ft_sqrt.c"
 #include "ex06/ft_is_prime.c"
 #include "ex07/ft_find_next_prime.c"
-#include "ex08/ft_queens.c"
+#include "ex08/ft_ten_queens_puzzle.c"
 
 int main()
 {
@@ -96,5 +96,5 @@ int main()
 		/*printf("%d is %d\n", i, ft_find_next_prime(i));*/
 
 	printf("---------------------\n");
-    // ft_queens();
+    printf("%d solutions\n", ft_ten_queens_puzzle());
 }
