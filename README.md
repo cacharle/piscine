@@ -1,5 +1,5 @@
-# Piscine
+# Piscine (reload)
 
-My piscine at 19
+This is the reload version of my piscine (I try to solve my KOed/missing exercices).
 
-*there is a lot of garbage here btw*
+To see the state at the end of the piscine checkout the [archive](https://github.com/HappyTramp/piscine/tree/archive) branch.
