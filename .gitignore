@@ -2,3 +2,6 @@ a.out
 *.o
 *.a
 testfiles
+
+rush00/ex*/*
+!rush00/ex*/*.rs
